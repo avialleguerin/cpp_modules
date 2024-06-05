@@ -1,6 +1,6 @@
-NAME = megaphone
+NAME = phonebook
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra - Werror -std=c++98
 RM = rm -rf
 
 #Colors and styles:
@@ -14,7 +14,8 @@ RESET	= \033[0m
 BOLD	= \033[1m
 UNDERLINE = \033[4m
 
-SRC = megaphone.cpp
+SRC =	PhoneBook.cpp \
+		Contact.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 
