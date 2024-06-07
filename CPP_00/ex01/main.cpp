@@ -18,7 +18,7 @@ int	main(void)
 		if (input.compare("SEARCH") == 0)
 		{
 			book.displayPhoneBook();
-			book.searchInput();
+			book.searchContact();
 		}
 	}
 	return 0;

@@ -16,6 +16,7 @@ UNDERLINE = \033[4m
 
 SRC =	PhoneBook.cpp \
 		Contact.cpp \
+		main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
