@@ -10,24 +10,12 @@ PhoneBook::~PhoneBook()
 
 }
 
-void	PhoneBook::welcome(void) const
-{
-	std::cout << "Welcome in PhoneBook App !" << std::endl;
-	std::cout << std::endl;
-	std::cout << "------ HOW TO USE ------" << std::endl;
-	std::cout << "ADD : To add a contact" << std::endl;
-	std::cout << "SEARCH : To search a contact" << std::endl;
-	std::cout << "EXIT : To exit PhoneBook" << std::endl;
-	std::cout << "------------------------" << std::endl;
-	std::cout << std::endl;
-}
-
 void	PhoneBook::displayPhoneBook(void) const
 {
 	std::cout << "---- PHONEBOOK CONTACTS ----" << std::endl;
 	for (int i = 0; i < 8; i++)
-		if (this->_contacts[i].isInitContact())
-			this->_contacts[i].viewContact(i);
+		if (_contacts[i].isInitContact())
+			_contacts[i].viewContact(i);
 	std::cout << std::endl;
 }
 
@@ -56,8 +44,10 @@ void	PhoneBook::searchContact(void) const
 {
 	int	i;
 	
-	i = this->_searchInput();
-	this->_contacts[i].printContact(i);
+	i = _searchInput();
+	if (i == -1)
+		return ;
+	_contacts[i].printContact(i);
 }
 
 void	PhoneBook::addContact(void)
@@ -66,6 +56,6 @@ void	PhoneBook::addContact(void)
 
 	if (indexContact == 8)
 		indexContact = 0;
-	this->_contacts[indexContact].initContact();
+	_contacts[indexContact].initContact();
 	indexContact++;
 }

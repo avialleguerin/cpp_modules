@@ -46,33 +46,33 @@ bool	Contact::isInitContact(void) const
 void	Contact::initContact(void)
 {
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	this->_firstname = this->_getUserInput("Please enter your firstname: ");
-	this->_lastname = this->_getUserInput("Please enter your lastname: ");
-	this->_nickname = this->_getUserInput("Please enter your nickname: ");
-	this->_phone = this->_getUserInput("Please enter your phone number: ");
-	this->_secret = this->_getUserInput("Please enter your darkest secret: ");
+	_firstname = _getUserInput("Please enter your firstname: ");
+	_lastname = _getUserInput("Please enter your lastname: ");
+	_nickname = _getUserInput("Please enter your nickname: ");
+	_phone = _getUserInput("Please enter your phone number: ");
+	_secret = _getUserInput("Please enter your darkest secret: ");
 	std::cout << std::endl;
-	this->_isInit = true;
+	_isInit = true;
 }
 
 void	Contact::viewContact(int index) const
 {
-	if (this->_firstname.empty() || this->_lastname.empty() || this->_nickname.empty())
+	if (_firstname.empty() || _lastname.empty() || _nickname.empty())
 		return ;
 	std::cout << "|" << std::setw(10) << index << std::flush;
-	std::cout << "|" << std::setw(10) << this->_trimeContact(this->_firstname) << std::flush;
-	std::cout << "|" << std::setw(10) << this->_trimeContact(this->_lastname) << std::flush;
-	std::cout << "|" << std::setw(10) << this->_trimeContact(this->_nickname) << std::flush;
+	std::cout << "|" << std::setw(10) << _trimeContact(_firstname) << std::flush;
+	std::cout << "|" << std::setw(10) << _trimeContact(_lastname) << std::flush;
+	std::cout << "|" << std::setw(10) << _trimeContact(_nickname) << std::flush;
 	std::cout << "|" << std::endl;
 }
 void	Contact::printContact(int index) const
 {
-	if (this->_firstname.empty() || this->_lastname.empty() || this->_nickname.empty())
+	if (_firstname.empty() || _lastname.empty() || _nickname.empty())
 		return ;
 	std::cout << std::endl;
 	std::cout << "Contact: " << index << std::endl;
-	std::cout << "Firstname\t" << this->_firstname << std::endl;
-	std::cout << "Lastname\t" << this->_lastname << std::endl;
-	std::cout << "Nickname\t" << this->_nickname << std::endl;
+	std::cout << "Firstname\t" << _firstname << std::endl;
+	std::cout << "Lastname\t" << _lastname << std::endl;
+	std::cout << "Nickname\t" << _nickname << std::endl;
 	std::cout << std::endl;
 }

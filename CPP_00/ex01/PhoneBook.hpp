@@ -10,7 +10,6 @@ class PhoneBook{
 	public:
 		PhoneBook();
 		~PhoneBook();
-		void	welcome(void) const;
 		void	addContact(void);
 		void	displayPhoneBook(void) const;
 		void	searchContact(void) const;
