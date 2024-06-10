@@ -3,12 +3,11 @@
 int	main(void)
 {
 	PhoneBook	book;
-	std::string input = "";
-	book.welcome();
-
+	std::string input;
+	std::cout << "Welcome in PhoneBook App !\n" << std::endl;
 	while (true)
 	{
-		std::cout << "> " << std::flush;
+		std::cout << "Enter a command (ADD, SEARCH, EXIT) : " << std::flush;
 		if (!(std::cin >> input))
 			break;
 		if (input.compare("EXIT") == 0)

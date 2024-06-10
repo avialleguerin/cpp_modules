@@ -6,10 +6,9 @@
 class PhoneBook{
 	private:
 		Contact	_contacts[8];
-		int		_nbContacts;
 		int		_searchInput(void) const;
 	public:
-		PhoneBook();;
+		PhoneBook();
 		~PhoneBook();
 		void	welcome(void) const;
 		void	addContact(void);
