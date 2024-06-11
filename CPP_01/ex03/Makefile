@@ -1,4 +1,4 @@
-NAME = megaphone
+NAME = human
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
@@ -14,7 +14,10 @@ RESET	= \033[0m
 BOLD	= \033[1m
 UNDERLINE = \033[4m
 
-SRC = megaphone.cpp
+SRC = 	main.cpp
+		HumainA.cpp
+		HumainB.cpp
+		Weapon.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

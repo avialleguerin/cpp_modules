@@ -36,7 +36,7 @@ clean:
 	@$(RM) $(OBJ)
 	@echo "$(GREEN)\nObject files cleaned.$(RESET)"
 
-flcean: clean
+fclean: clean
 	@echo -n "$(RED)Removing executable...$(RESET)"
 	@$(RM) $(NAME)
 	@echo "$(GREEN)\nExecutable removed.$(RESET)"

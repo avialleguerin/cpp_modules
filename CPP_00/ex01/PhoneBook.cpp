@@ -19,35 +19,19 @@ void	PhoneBook::displayPhoneBook(void) const
 	std::cout << std::endl;
 }
 
-int	PhoneBook::_searchInput(void) const
-{
-	bool	valid = false;
-	int		index = -1;
-
-	do
-	{
-		std::cout << "Please enter the contact index : " << std::flush;
-		std::cin >> index;
-		if (index >= 0 && index < 8)
-			valid = true;
-		else
-		{
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
-			std::cout << "Invalid index. Please try again." << std::endl;
-		}
-	} while (!valid);
-	return (index);
-}
 
 void	PhoneBook::searchContact(void) const
 {
-	int	i;
-	
-	i = _searchInput();
-	if (i == -1)
-		return ;
-	_contacts[i].printContact(i);
+	int	nb;
+	std::cout << "Veuillez entrer l'index d'un contact : ";
+	if (std::cin >> nb && nb < 8)
+		_contacts[nb].printContact(nb);
+	else
+	{
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::cout << "Erreur : Entree invalide." << std::endl;
+	}
 }
 
 void	PhoneBook::addContact(void)
