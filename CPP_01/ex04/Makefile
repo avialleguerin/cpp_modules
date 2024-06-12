@@ -1,4 +1,4 @@
-NAME = human_attack
+NAME = sed
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
