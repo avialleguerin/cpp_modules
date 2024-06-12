@@ -101,7 +101,7 @@ bool	Account::makeWithdrawal( int withdrawal )
 	std::cout
 	<< "index:" << _accountIndex
 	<< ";p_amount:" << _amount
-	<< ";withdrawals:";
+	<< ";withdrawal:";
 	if (_amount < withdrawal)
 	{
 		std::cout << "refused" << std::endl;
@@ -134,7 +134,7 @@ void	Account::displayAccountsInfos( void )
 	_displayTimestamp();
 	std::cout
 	<< "accounts:" << _nbAccounts <<
-	";amount:" << _totalAmount <<
+	";total:" << _totalAmount <<
 	";deposits:" << _totalNbDeposits <<
 	";withdrawals:" << _totalNbWithdrawals <<
 	std::endl;
