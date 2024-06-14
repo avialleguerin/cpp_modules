@@ -14,18 +14,21 @@ std::string	Contact::_getUserInput(std::string str) const
 	std::string	input = "";
 	bool		validInput = false;
 
-	do
+	std::cout << str << std::flush;
+	std::getline(std::cin, input);
+	if (std::cin.good() && !input.empty())
+		validInput = true;
+	else 
 	{
-		std::cout << str << std::flush;
-		std::getline(std::cin, input);
-		if (std::cin.good() && !input.empty())
-			validInput = true;
-		else
+		if (!std::cin)
 		{
-			std::cin.clear();
-			std::cout << "Invalid input; please try again." << std::endl;
+			std::cout << "X" << std::endl;
+			return ("empty");
 		}
-	} while (!validInput);
+		std::cin.clear();
+		std::cout << "Entree invalide. Veuillez reessayer" << std::endl;
+		_getUserInput(str);
+	}
 	return (input);
 	
 }
@@ -45,12 +48,11 @@ bool	Contact::isInitContact(void) const
 
 void	Contact::initContact(void)
 {
-	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	_firstname = _getUserInput("Please enter your firstname: ");
-	_lastname = _getUserInput("Please enter your lastname: ");
-	_nickname = _getUserInput("Please enter your nickname: ");
-	_phone = _getUserInput("Please enter your phone number: ");
-	_secret = _getUserInput("Please enter your darkest secret: ");
+	_firstname = _getUserInput("Entrez le prenom: ");
+	_lastname = _getUserInput("Entrez le nom de famille: ");
+	_nickname = _getUserInput("Entrez le surnom: ");
+	_phone = _getUserInput("Entrez le numero de telephone: ");
+	_secret = _getUserInput("Entrez le sombre secret: ");
 	std::cout << std::endl;
 	_isInit = true;
 }
