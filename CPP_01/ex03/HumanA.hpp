@@ -5,7 +5,6 @@
 #include <iostream>
 #include "Weapon.hpp"
 
-
 class HumanA
 {
 private:
