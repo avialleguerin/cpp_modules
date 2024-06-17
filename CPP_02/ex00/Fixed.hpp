@@ -6,12 +6,13 @@
 class Fixed
 {
 private:
-	int					nb;
-	static const int	staticNb;
+	int					_value;
+	static const int	_fractionalBits = 8;
 public:
 	Fixed();
 	Fixed(const Fixed& other);
 	~Fixed();
+	Fixed& operator=(const Fixed& other);
 	int		getRawBits( void ) const;
 	void	setRawBits( int const raw );
 };
