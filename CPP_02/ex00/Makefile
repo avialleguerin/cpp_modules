@@ -1,8 +1,8 @@
-NAME = account
+NAME = sed
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
-INCLUDES = Account.hpp
+INCLUDES = Fixed.hpp
 
 #Colors and styles:
 RED		= \033[0;31m
@@ -15,8 +15,9 @@ RESET	= \033[0m
 BOLD	= \033[1m
 UNDERLINE = \033[4m
 
-SRC =	Account.cpp \
-		tests.cpp
+SRC	=	main.cpp \
+		Fixed.cpp
+
 
 OBJ = $(SRC:.cpp=.o)
 
@@ -25,12 +26,13 @@ $(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
 	@echo "$(GREEN)\nDone.$(RESET)"
 
+all : $(NAME)
+
 %.o: %.cpp $(INCLUDES)
 	@echo "$(CYAN)Creating object file for $<...$(RESET)"
 	@$(CC) $(CFLAGS) -I ./ -c $< -o $@
 	@echo "$(GREEN)Finished $@$(RESET)"
 
-all : $(NAME)
 
 clean:
 	@echo -n "$(RED)Cleaning object files...$(RESET)"

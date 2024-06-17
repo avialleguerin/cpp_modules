@@ -2,6 +2,7 @@ NAME = human_attack
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
+INCLUDES = HumanA.hpp HumanB.hpp Weapon.hpp
 
 #Colors and styles:
 RED		= \033[0;31m
@@ -28,7 +29,7 @@ $(NAME): $(OBJ)
 
 all : $(NAME)
 
-%.o: %.cpp
+%.o: %.cpp $(INCLUDES)
 	@echo "$(CYAN)Creating object file for $<...$(RESET)"
 	@$(CC) $(CFLAGS) -I ./ -c $< -o $@
 	@echo "$(GREEN)Finished $@$(RESET)"

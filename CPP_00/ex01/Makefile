@@ -2,6 +2,7 @@ NAME = phonebook
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
+INCLUDES = PhoneBook.hpp header.hpp Contact.hpp
 
 #Colors and styles:
 RED		= \033[0;31m
@@ -25,7 +26,7 @@ $(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
 	@echo "$(GREEN)\nDone.$(RESET)"
 
-%.o: %.cpp
+%.o: %.cpp $(INCLUDES)
 	@echo "$(CYAN)Creating object file for $<...$(RESET)"
 	@$(CC) $(CFLAGS) -I ./ -c $< -o $@
 	@echo "$(GREEN)Finished $@$(RESET)"
