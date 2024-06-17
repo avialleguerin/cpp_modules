@@ -34,7 +34,7 @@ void Harl::complain( std::string level )
 	while (i < 4 && levels[i].compare(level) != 0)
 		i++;
 	if (i > 3)
-		std::cout << "This complaint is not accepted!" << std::endl;
+		std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 	if (i < 4)
 		(this->*ptrs[i])();
 }

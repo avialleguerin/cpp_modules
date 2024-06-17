@@ -12,6 +12,7 @@ private:
 	void error( void );
 public:
 	void complain( std::string level );
+	void complainFilter( int i );
 };
 
 #endif

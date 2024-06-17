@@ -22,16 +22,6 @@ int	main(void)
 	}
 	z3->announce();
 	delete z3;
-
-	std::cout << "\n\nShow error when allocation didn't work : " << std::endl;
-	Zombie* z4;
-	try {
-		z4 = (Zombie *)new int[1000000000000];
-	}
-	catch (const std::bad_alloc& err)
-	{
-		std::cerr << "Allocation with newZombie failed :" << err.what() << std::endl;
-	}
 	std::cout << "\n\n";
 	return (0);
 }
