@@ -23,7 +23,6 @@ Fixed::Fixed(const float nbFloat)
 	_nbInt = (int)roundf(nbFloat * (1 << _fractionalBits));
 }
 
-
 Fixed::~Fixed()
 {
 	std::cout << "Destructor called" << std::endl;
@@ -63,4 +62,3 @@ float	Fixed::toFloat( void ) const
 {
 	return ((float) _nbInt / (1 << _fractionalBits));
 }
-
