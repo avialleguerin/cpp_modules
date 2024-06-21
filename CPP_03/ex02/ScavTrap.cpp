@@ -23,10 +23,7 @@ ScavTrap::ScavTrap(const ScavTrap& other)
 	*this = other;
 }
 
-ScavTrap::~ScavTrap()
-{
-	std::cout << "ScavTrap " << _name << "has been destroyed." << std::endl;
-}
+ScavTrap::~ScavTrap() {}
 
 ScavTrap&	ScavTrap::operator=(const ScavTrap& other)
 {

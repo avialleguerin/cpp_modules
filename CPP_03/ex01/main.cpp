@@ -1,60 +1,22 @@
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int	main()
 {
-	ClapTrap claptrap1;
-	claptrap1.displayPoints();
-	std::cout << std::endl;
+	ScavTrap scavTrap1;
+	ScavTrap scavTrap2(scavTrap1);
 
-	ClapTrap claptrap2("Bob");
-	claptrap2.displayPoints();
-	std::cout << std::endl;
+	scavTrap1 = ScavTrap("Scav1");
+	scavTrap2 = ScavTrap("Scav2");
 
-	ClapTrap claptrap3(claptrap2);
-	claptrap3.displayPoints();
-	std::cout << std::endl;
+	while (scavTrap2.getHitPoints())
+	{
+		scavTrap1.attack(scavTrap2.getName());
+		scavTrap2.takeDamage(scavTrap1.getAttackDamage());
+		scavTrap2.beRepaired(4);
+		std::cout << std::endl;
+	}
+	scavTrap2.guardGate();
 
-	claptrap1.beRepaired(2);
-	std::cout << std::endl;
-
-	claptrap1.displayPoints();
-	std::cout << std::endl;
-
-	claptrap1.attack("Enemy");
-	claptrap1.attack("Enemy");
-	claptrap1.attack("Enemy");
-	claptrap1.attack("Enemy");
-	claptrap1.attack("Enemy");
-	std::cout << std::endl;
-
-	claptrap1.displayPoints();
-	std::cout << std::endl;
-
-	claptrap1.attack("Enemy");
-	claptrap1.attack("Enemy");
-	claptrap1.attack("Enemy");
-	claptrap1.attack("Enemy");
-	claptrap1.beRepaired(2);
-	std::cout << std::endl;
-
-	claptrap1.displayPoints();
-	std::cout << std::endl;
-
-	claptrap1.takeDamage(5);
-	std::cout << std::endl;
-
-	claptrap1.displayPoints();
-	claptrap1.takeDamage(9);
-	std::cout << std::endl;
-
-	claptrap1.displayPoints();
-	std::cout << std::endl;
-
-	claptrap1.attack("Enemy");
-	claptrap1.takeDamage(3);
-	std::cout << std::endl;
-
-	claptrap1.displayPoints();
-	std::cout << std::endl;
 	return 0;
 }

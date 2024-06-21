@@ -1,4 +1,4 @@
-NAME = scavtrap
+NAME = fragtrap
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
@@ -17,7 +17,8 @@ UNDERLINE = \033[4m
 
 SRC	=	main.cpp \
 		ClapTrap.cpp \
-		ScavTrap.cpp
+		ScavTrap.cpp \
+		FragTrap.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
