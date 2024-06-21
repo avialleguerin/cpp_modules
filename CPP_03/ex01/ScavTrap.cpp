@@ -60,5 +60,5 @@ void	ScavTrap::displayPoints(void)
 
 void	ScavTrap::guardGate()
 {
-	std::cout << "ScavTrap named " << _name << "is now in Gate keeper mode";
+	std::cout << "ScavTrap named " << _name << "is now in Gate keeper mode" << std::endl;
 }
