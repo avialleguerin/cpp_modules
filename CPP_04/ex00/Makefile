@@ -1,8 +1,8 @@
-NAME = diamondtrap
+NAME = animal
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
-INCLUDES = ClapTrap.hpp FragTrap.hpp ScavTrap.hpp DiamondTrap.hpp
+INCLUDES = Animal.hpp Cat.hpp Dog.hpp
 
 #Colors and styles:
 RED		= \033[0;31m
@@ -16,9 +16,9 @@ BOLD	= \033[1m
 UNDERLINE = \033[4m
 
 SRC	=	main.cpp \
-		ClapTrap.cpp \
-		ScavTrap.cpp \
-		FragTrap.cpp
+		Animal.cpp \
+		Cat.cpp \
+		Dog.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

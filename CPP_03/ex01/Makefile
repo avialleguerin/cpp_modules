@@ -2,7 +2,7 @@ NAME = scavtrap
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
-INCLUDES = ClapTrap.hpp
+INCLUDES = ClapTrap.hpp ScavTrap.hpp
 
 #Colors and styles:
 RED		= \033[0;31m
