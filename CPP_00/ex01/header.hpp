@@ -6,6 +6,7 @@
 #include <string>
 #include <limits>
 #include <iomanip>
+#include <cstdio>
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
 
