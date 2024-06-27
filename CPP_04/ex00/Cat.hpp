@@ -9,8 +9,8 @@ public:
 	Cat();
 	Cat(const Cat& other);
 	~Cat();
-	void		makeSound();
-	std::string	getType();
+	Cat&	operator=(const Cat& other);
+	void	makeSound() const;
 };
 
 #endif
