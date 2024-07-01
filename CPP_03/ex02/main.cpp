@@ -1,4 +1,3 @@
-#include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 
@@ -18,9 +17,11 @@ int	main()
 		clapTrap4.takeDamage(fragTrap2.getAttackDamage());
 		clapTrap4.beRepaired(fragTrap2.getAttackDamage() / 3);
 		std::cout << std::endl;
+		fragTrap2.displayPoints();
+		std::cout << std::endl;
+		clapTrap4.displayPoints();
+		std::cout << std::endl;
 	}
-
 	fragTrap2.highFivesGuys();
-
 	return 0;
 }

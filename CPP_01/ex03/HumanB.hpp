@@ -1,9 +1,9 @@
 #ifndef HUMANB_HPP
 # define HUMANB_HPP
 
-#include <iomanip>
-#include <iostream>
-#include "Weapon.hpp"
+# include <iomanip>
+# include <iostream>
+# include "Weapon.hpp"
 
 class HumanB
 {

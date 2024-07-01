@@ -4,21 +4,17 @@ int	main()
 {
 	ClapTrap claptrap1;
 	claptrap1.displayPoints();
-	std::cout << std::endl;
 
 	ClapTrap claptrap2("Bob");
 	claptrap2.displayPoints();
-	std::cout << std::endl;
 
 	ClapTrap claptrap3(claptrap2);
 	claptrap3.displayPoints();
-	std::cout << std::endl;
 
 	claptrap1.beRepaired(2);
 	std::cout << std::endl;
 
 	claptrap1.displayPoints();
-	std::cout << std::endl;
 
 	claptrap1.attack("Enemy");
 	claptrap1.attack("Enemy");
@@ -28,7 +24,6 @@ int	main()
 	std::cout << std::endl;
 
 	claptrap1.displayPoints();
-	std::cout << std::endl;
 
 	claptrap1.attack("Enemy");
 	claptrap1.attack("Enemy");
@@ -38,7 +33,6 @@ int	main()
 	std::cout << std::endl;
 
 	claptrap1.displayPoints();
-	std::cout << std::endl;
 
 	claptrap1.takeDamage(5);
 	std::cout << std::endl;
@@ -48,13 +42,11 @@ int	main()
 	std::cout << std::endl;
 
 	claptrap1.displayPoints();
-	std::cout << std::endl;
 
 	claptrap1.attack("Enemy");
 	claptrap1.takeDamage(3);
 	std::cout << std::endl;
 
 	claptrap1.displayPoints();
-	std::cout << std::endl;
 	return 0;
 }

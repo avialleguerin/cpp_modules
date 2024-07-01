@@ -12,16 +12,22 @@ ClapTrap::ClapTrap(std::string name) :  _name(name), _hitPoints(10), _energyPoin
 
 ClapTrap::ClapTrap(const ClapTrap& other)
 {
-	_name = other._name;
-	_hitPoints = other._hitPoints;
-	_energyPoints = other._energyPoints;
-	_attackDamage = other._attackDamage;
-	std::cout << "Copy Constructor has been called" << std::endl;
+	std::cout << "Copy ClapTrap " << _name << " has been created" << std::endl;
+	*this = other;
 }
 
 ClapTrap::~ClapTrap()
 {
 	std::cout << "Destrucor has been called" << std::endl;
+}
+
+ClapTrap&	ClapTrap::operator=(const ClapTrap& other)
+{
+	_name = other._name;
+	_hitPoints = other._hitPoints;
+	_energyPoints = other._energyPoints;
+	_attackDamage = other._attackDamage;
+	return(*this);
 }
 
 void ClapTrap::attack(const std::string& target)
@@ -63,8 +69,8 @@ void ClapTrap::beRepaired(unsigned int amount)
 
 void	ClapTrap::displayPoints(void)
 {
-	std::cout << "Name: " << _name << std::endl;
-	std::cout << "Hit Points: " << _hitPoints << std::endl;
-	std::cout << "Energy Points: " << _energyPoints << std::endl;
-	std::cout << "Attack Damages: " << _attackDamage << std::endl;
+	std::cout << "Name:\t\t" << _name << std::endl;
+	std::cout << "Hit Points:\t" << _hitPoints << std::endl;
+	std::cout << "Energy Points:\t" << _energyPoints << std::endl;
+	std::cout << "Attack Damages:\t" << _attackDamage << std::endl << std::endl;
 }

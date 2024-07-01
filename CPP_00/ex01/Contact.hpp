@@ -1,7 +1,7 @@
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
 
-#include "header.hpp"
+# include "header.hpp"
 
 class Contact {
 private:

@@ -3,29 +3,30 @@
 ScavTrap::ScavTrap() : ClapTrap()
 {
 	_name = "*NoName*";
-	std::cout << "ScavTrap " << _name << " has been created" << std::endl;
+	std::cout << "ScavTrap " << _name << " has been created\n" << std::endl;
 	_hitPoints = 100;
 	_energyPoints = 50;
 	_attackDamage = 20;
 	
 }
 
-ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name) 
+ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
 {
-	std::cout << "ScavTrap " << _name << " has been created" << std::endl;
+	std::cout << "ScavTrap " << _name << " has been created\n" << std::endl;
 	_hitPoints = 100;
 	_energyPoints = 50;
 	_attackDamage = 20;
 }
 
-ScavTrap::ScavTrap(const ScavTrap& other)
+ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other)
 {
+	std::cout << "Copy ScavTrap " << _name << " has been created" << std::endl;
 	*this = other;
 }
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap " << _name << "has been destroyed." << std::endl;
+	std::cout << "ScavTrap " << _name << " has been destroyed" << std::endl;
 }
 
 ScavTrap&	ScavTrap::operator=(const ScavTrap& other)
@@ -46,16 +47,6 @@ void ScavTrap::attack(const std::string& target)
 	}
 	else
 		std::cout << "ScavTrap " << _name << " need Hit Points and Energy Point to attack." << std::endl;
-}
-
-void	ScavTrap::displayPoints(void)
-{
-	std::cout << std::endl;
-	std::cout << "Name: " << _name << std::endl;
-	std::cout << "Hit Points: " << _hitPoints << std::endl;
-	std::cout << "Energy Points: " << _energyPoints << std::endl;
-	std::cout << "Attack Damages: " << _attackDamage << std::endl;
-	std::cout << std::endl;
 }
 
 void	ScavTrap::guardGate()

@@ -1,8 +1,8 @@
 #ifndef WEAPON_HPP
 # define WEAPON_HPP
 
-#include <iomanip>
-#include <iostream>
+# include <iomanip>
+# include <iostream>
 
 class Weapon
 {

@@ -3,27 +3,30 @@
 FragTrap::FragTrap() : ClapTrap()
 {
 	_name = "*NoName*";
-	std::cout << "FragTrap " << _name << " has been created" << std::endl;
+	std::cout << "Default FragTrap has been created\n" << std::endl;
 	_hitPoints = 100;
 	_energyPoints = 100;
 	_attackDamage = 30;
-	
 }
 
 FragTrap::FragTrap(const std::string& name) : ClapTrap(name) 
 {
-	std::cout << "FragTrap " << _name << " has been created" << std::endl;
+	std::cout << "FragTrap " << _name << " has been created\n" << std::endl;
 	_hitPoints = 100;
 	_energyPoints = 100;
 	_attackDamage = 30;
 }
 
-FragTrap::FragTrap(const FragTrap& other)
+FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other)
 {
+	std::cout << "Copy FragTrap " << _name << " has been created\n" << std::endl;
 	*this = other;
 }
 
-FragTrap::~FragTrap() {}
+FragTrap::~FragTrap()
+{
+	std::cout << "FragTrap " << _name << " has been destroyed" << std::endl;
+}
 
 FragTrap&	FragTrap::operator=(const FragTrap& other)
 {
@@ -43,16 +46,6 @@ void FragTrap::attack(const std::string& target)
 	}
 	else
 		std::cout << "FragTrap " << _name << " need Hit Points and Energy Point to attack." << std::endl;
-}
-
-void	FragTrap::displayPoints(void)
-{
-	std::cout << std::endl;
-	std::cout << "Name: " << _name << std::endl;
-	std::cout << "Hit Points: " << _hitPoints << std::endl;
-	std::cout << "Energy Points: " << _energyPoints << std::endl;
-	std::cout << "Attack Damages: " << _attackDamage << std::endl;
-	std::cout << std::endl;
 }
 
 void	FragTrap::highFivesGuys()
