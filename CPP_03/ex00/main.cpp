@@ -2,51 +2,25 @@
 
 int	main()
 {
-	ClapTrap claptrap1;
-	claptrap1.displayPoints();
+	ClapTrap	clapTrap1("Clap1");
+	ClapTrap	clapTrap2;
 
-	ClapTrap claptrap2("Bob");
-	claptrap2.displayPoints();
-
-	ClapTrap claptrap3(claptrap2);
-	claptrap3.displayPoints();
-
-	claptrap1.beRepaired(2);
+	clapTrap1.displayPoints();
+	clapTrap2.displayPoints();
+	
+	
+	for (int i = 0; i < 5; i++)
+		clapTrap1.attack("*NoName*");
+	std::cout << std::endl;
+	for (int i = 0; i < 5; i++)
+		clapTrap2.takeDamage(0);
+	std::cout << std::endl;
+	for (int i = 0; i < 5; i++)
+		clapTrap2.beRepaired(1);
 	std::cout << std::endl;
 
-	claptrap1.displayPoints();
-
-	claptrap1.attack("Enemy");
-	claptrap1.attack("Enemy");
-	claptrap1.attack("Enemy");
-	claptrap1.attack("Enemy");
-	claptrap1.attack("Enemy");
-	std::cout << std::endl;
-
-	claptrap1.displayPoints();
-
-	claptrap1.attack("Enemy");
-	claptrap1.attack("Enemy");
-	claptrap1.attack("Enemy");
-	claptrap1.attack("Enemy");
-	claptrap1.beRepaired(2);
-	std::cout << std::endl;
-
-	claptrap1.displayPoints();
-
-	claptrap1.takeDamage(5);
-	std::cout << std::endl;
-
-	claptrap1.displayPoints();
-	claptrap1.takeDamage(9);
-	std::cout << std::endl;
-
-	claptrap1.displayPoints();
-
-	claptrap1.attack("Enemy");
-	claptrap1.takeDamage(3);
-	std::cout << std::endl;
-
-	claptrap1.displayPoints();
-	return 0;
+	clapTrap1.displayPoints();
+	clapTrap2.displayPoints();
+	
+	return (0);
 }

@@ -1,24 +1,16 @@
 #include "DiamondTrap.hpp"
 
-int	main()
+int	main(void)
 {
-	DiamondTrap diamondTrap1;
-	DiamondTrap diamondTrap2(diamondTrap1);
-	ScavTrap scavTrap3;
-	ClapTrap clapTrap4(scavTrap3);
+	DiamondTrap	diamondTrap("Diamond");
 
-	diamondTrap2 = DiamondTrap("Diamond");
-	clapTrap4 = FragTrap("Fraggy");
+	std::cout << std::endl;
 
-	while (clapTrap4.getHitPoints())
-	{
-		diamondTrap2.attack(clapTrap4.getName());
-		//clapTrap4.takeDamage(diamondTrap2.getAttackDamage());
-		//clapTrap4.beRepaired(diamondTrap2.getAttackDamage() / 3);
-		std::cout << std::endl;
-	}
+	diamondTrap.whoAmI();
+	diamondTrap.highFivesGuys();
+	diamondTrap.guardGate();
 
-	diamondTrap2.whoAmI();
+	std::cout << std::endl;
 
-	return 0;
+	return (0);
 }

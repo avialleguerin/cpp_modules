@@ -1,21 +1,27 @@
+#include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 
 int	main()
 {
-	ScavTrap scavTrap1;
-	ScavTrap scavTrap2(scavTrap1);
+	ClapTrap	clapTrap("Clap");
+	ScavTrap	scavTrap("Scav");
 
-	scavTrap1 = ScavTrap("Scav1");
-	scavTrap2 = ScavTrap("Scav2");
+	scavTrap.displayPoints();
+	clapTrap.displayPoints();
+	
+	
+	for (int i = 0; i < 5; i++)
+		scavTrap.attack("Scav");
+	std::cout << std::endl;
+	for (int i = 0; i < 5; i++)
+		clapTrap.takeDamage(scavTrap.getAttackDamage());
+	std::cout << std::endl;
+	for (int i = 0; i < 5; i++)
+		clapTrap.beRepaired(1);
 
-	while (scavTrap2.getHitPoints())
-	{
-		scavTrap1.attack(scavTrap2.getName());
-		scavTrap2.takeDamage(scavTrap1.getAttackDamage());
-		scavTrap2.beRepaired(4);
-		std::cout << std::endl;
-	}
-	scavTrap2.guardGate();
+	scavTrap.displayPoints();
+	clapTrap.displayPoints();
+	scavTrap.guardGate();
 
-	return 0;
+	return (0);
 }

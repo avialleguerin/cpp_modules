@@ -2,12 +2,12 @@
 
 ClapTrap::ClapTrap() : _name("*NoName*"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-	std::cout << "Default Constructor has been called" << std::endl;
+	std::cout << "ClapTrap " << _name << " has been created" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name) :  _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-	std::cout << "Constructor with name assignement has been called" << std::endl;
+	std::cout << "ClapTrap " << _name << " has been created" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other)
@@ -18,7 +18,7 @@ ClapTrap::ClapTrap(const ClapTrap& other)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Destrucor has been called" << std::endl;
+	std::cout << "ClapTrap " << _name << " has been destroyed" << std::endl;
 }
 
 ClapTrap&	ClapTrap::operator=(const ClapTrap& other)
@@ -29,7 +29,6 @@ ClapTrap&	ClapTrap::operator=(const ClapTrap& other)
 	_attackDamage = other._attackDamage;
 	return(*this);
 }
-
 void ClapTrap::attack(const std::string& target)
 {
 	if (_hitPoints > 0 && _energyPoints > 0)
@@ -43,6 +42,11 @@ void ClapTrap::attack(const std::string& target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
+	if (_hitPoints == 0)
+	{
+		std::cout << "ClapTrap " << _name << " is already disabled" << std::endl;
+		return ;
+	}
 	if (_hitPoints >= amount)
 		std::cout << "ClapTrap " << _name << " took " << amount << " points of damage" << std::endl;
 	else
@@ -69,8 +73,9 @@ void ClapTrap::beRepaired(unsigned int amount)
 
 void	ClapTrap::displayPoints(void)
 {
-	std::cout << "Name:\t\t" << _name << std::endl;
-	std::cout << "Hit Points:\t" << _hitPoints << std::endl;
-	std::cout << "Energy Points:\t" << _energyPoints << std::endl;
-	std::cout << "Attack Damages:\t" << _attackDamage << std::endl << std::endl;
+	std::cout << "Name: " << _name << std::endl;
+	std::cout << "Hit Points: " << _hitPoints << std::endl;
+	std::cout << "Energy Points: " << _energyPoints << std::endl;
+	std::cout << "Attack Damages: " << _attackDamage << std::endl;
+	std::cout << std::endl;
 }
