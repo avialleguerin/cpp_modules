@@ -10,7 +10,7 @@ protected:
 public:
 	Brain();
 	Brain(const Brain& other);
-	virtual	~Brain();
+	~Brain();
 	Brain&	operator=(const Brain& other);
 	void	setBrain( std::string think );
 	void	printBrain( void );

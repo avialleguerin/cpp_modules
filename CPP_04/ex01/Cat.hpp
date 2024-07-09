@@ -11,7 +11,7 @@ private:
 public:
 	Cat();
 	Cat(const Cat& other);
-	virtual ~Cat();
+	~Cat();
 	Cat&	operator=(const Cat& other);
 	void	makeSound() const;
 	void	printBrain( void );
