@@ -10,7 +10,7 @@ Dog::Dog()
 	std::cout << "A Dog has been created" << std::endl;
 }
 
-Dog::Dog(const Dog& other) : Animal(other)
+Dog::Dog(const Dog& other) : AAnimal(other)
 {
 	*this = other;
 	std::cout << "A copy Dog has been created" << std::endl;

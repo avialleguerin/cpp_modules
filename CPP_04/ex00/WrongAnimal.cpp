@@ -3,13 +3,13 @@
 WrongAnimal::WrongAnimal()
 {
 	_type = "wrongAnimal";
-	std::cout << "A default WrongAnimal has been created" << std::endl;
+	std::cout << "A Wrong Animal has been created" << std::endl;
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal& other)
 {
 	*this = other;
-	std::cout << "A copy WrongAnimal has been created" << std::endl;
+	std::cout << "A copy Wrong Animal has been created" << std::endl;
 }
 
 WrongAnimal&	WrongAnimal::operator=(const WrongAnimal& other)
@@ -28,5 +28,5 @@ std::string	WrongAnimal::getType() const
 
 void	WrongAnimal::makeSound() const
 {
-	std::cout << "*WrongAnimal scream*" << std::endl;
+	std::cout << "*Wrong Animal scream*" << std::endl;
 }

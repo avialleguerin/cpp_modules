@@ -3,7 +3,7 @@
 Dog::Dog()
 {
 	_type = "Dog";
-	std::cout << "A default Dog has been created" << std::endl;
+	std::cout << "A Dog has been created" << std::endl;
 }
 
 Dog::Dog(const Dog& other) : Animal(other)
@@ -22,5 +22,5 @@ Dog::~Dog() {}
 
 void	Dog::makeSound() const
 {
-	std::cout << "wouaf wouaf" << std::endl;
+	std::cout << "Wouaf Wouaf" << std::endl;
 }

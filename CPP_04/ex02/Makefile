@@ -16,11 +16,10 @@ BOLD	= \033[1m
 UNDERLINE = \033[4m
 
 SRC	=	main.cpp \
-		Animal.cpp \
+		AAnimal.cpp \
 		Cat.cpp \
 		Dog.cpp \
-		WrongAnimal.cpp \
-		WrongCat.cpp
+		Brain.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

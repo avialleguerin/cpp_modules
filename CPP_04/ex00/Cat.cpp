@@ -3,7 +3,7 @@
 Cat::Cat()
 {
 	_type = "Cat";
-	std::cout << "A default Cat has been created" << std::endl;
+	std::cout << "A Cat has been created" << std::endl;
 }
 
 Cat::Cat(const Cat& other) : Animal(other)
@@ -22,6 +22,6 @@ Cat::~Cat() {}
 
 void	Cat::makeSound() const
 {
-	std::cout << "miaou miaou" << std::endl;
+	std::cout << "Miaou Miaou" << std::endl;
 
 }

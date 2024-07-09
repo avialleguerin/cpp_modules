@@ -10,7 +10,7 @@ Cat::Cat()
 	std::cout << "A Cat has been created" << std::endl;
 }
 
-Cat::Cat(const Cat& other) : Animal(other)
+Cat::Cat(const Cat& other) : AAnimal(other)
 {
 	*this = other;
 	std::cout << "A copy Cat has been created" << std::endl;

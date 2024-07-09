@@ -3,13 +3,13 @@
 WrongCat::WrongCat()
 {
 	_type = "WrongCat";
-	std::cout << "A default WrongCat has been created" << std::endl;
+	std::cout << "A Wrong Cat has been created" << std::endl;
 }
 
 WrongCat::WrongCat(const WrongCat& other) : WrongAnimal(other)
 {
 	*this = other;
-	std::cout << "A copy WrongCat has been created" << std::endl;
+	std::cout << "A copy Wrong Cat has been created" << std::endl;
 }
 
 WrongCat&	WrongCat::operator=(const WrongCat& other)
@@ -22,6 +22,6 @@ WrongCat::~WrongCat() {}
 
 void	WrongCat::makeSound() const
 {
-	std::cout << "wrongMiaou wrongMiaou" << std::endl;
+	std::cout << "Wrong Miaou Miaou" << std::endl;
 
 }

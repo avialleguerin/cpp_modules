@@ -3,7 +3,7 @@
 Animal::Animal()
 {
 	_type = "Animal";
-	std::cout << "A default Animal has been created" << std::endl;
+	std::cout << "An Animal has been created" << std::endl;
 }
 
 Animal::Animal(const Animal& other)

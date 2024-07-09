@@ -5,7 +5,7 @@ int main()
 {
 	{
 		int i = 10;
-		Animal *animals[i];
+		AAnimal *animals[i];
 		for (int j = 0; j < i / 2; j++)
 		{
 			std::cout << j + 1 << std::endl;
