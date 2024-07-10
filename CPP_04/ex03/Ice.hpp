@@ -2,17 +2,18 @@
 # define ICE_HPP
 
 # include "AMateria.hpp"
+# include "ICharacter.hpp"
 
-class ice
+class Ice: public AMateria
 {
-protected:
-
 public:
-	ice();
-	ice(std::string const& type);
-	~ice();
-	ice&	operator=(const ice& other);
-	ice* clone() const;
+	Ice();
+	Ice(std::string const& type);
+	Ice(const Ice& other);
+	~Ice() {};
+	Ice&	operator=(const Ice& other);
+	Ice*	clone() const;
+	void	use(ICharacter& target);
 };
 
 

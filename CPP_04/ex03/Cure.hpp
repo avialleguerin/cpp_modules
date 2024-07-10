@@ -2,17 +2,17 @@
 # define CURE_HPP
 
 # include "AMateria.hpp"
+# include "ICharacter.hpp"
 
-class cure
+class Cure: public AMateria
 {
-protected:
-
 public:
-	cure();
-	cure(std::string const& type);
-	~cure();
-	cure&	operator=(const cure& other);
-	cure* clone() const;
+	Cure();
+	Cure(std::string const& type);
+	~Cure() {};
+	Cure&	operator=(const Cure& other);
+	Cure*	clone() const;
+	void	use(ICharacter& target);
 };
 
 
