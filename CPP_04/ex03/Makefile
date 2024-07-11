@@ -20,7 +20,6 @@ SRC	=	main.cpp \
 		ICharacter.cpp \
 		Amateria.cpp \
 		MateriaSource.cpp \
-		IMateriaSource.cpp \
 		Ice.cpp \
 		Cure.cpp
 
