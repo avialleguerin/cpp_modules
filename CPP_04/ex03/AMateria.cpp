@@ -2,7 +2,7 @@
 
 AMateria::AMateria()
 {
-	_type = NULL;
+	// _type = NULL;
 }
 
 AMateria::AMateria(std::string const& type)

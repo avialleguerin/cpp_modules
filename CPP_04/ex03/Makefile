@@ -17,8 +17,7 @@ UNDERLINE = \033[4m
 
 SRC	=	main.cpp \
 		Character.cpp \
-		ICharacter.cpp \
-		Amateria.cpp \
+		AMateria.cpp \
 		MateriaSource.cpp \
 		Ice.cpp \
 		Cure.cpp

@@ -1,9 +1,8 @@
 #ifndef CHARACTER_HPP
 # define CHARACTER_HPP
 
-# include <iostream>
-# include "Ice.hpp"
 # include "Cure.hpp"
+# include "Ice.hpp"
 
 class Character: public ICharacter
 {
