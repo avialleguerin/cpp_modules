@@ -2,7 +2,7 @@ NAME = animal
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
-INCLUDES = Animal.hpp Cat.hpp Dog.hpp
+INCLUDES = Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WonrgCat.hpp
 
 #Colors and styles:
 RED		= \033[0;31m

@@ -10,10 +10,10 @@ protected:
 public:
 	WrongAnimal();
 	WrongAnimal(const WrongAnimal& other);
-	virtual ~WrongAnimal();
+	~WrongAnimal();
 	WrongAnimal&	operator=(const WrongAnimal& other);
 	std::string		getType() const;
-	virtual void	makeSound() const;
+	void	makeSound() const;
 };
 
 #endif

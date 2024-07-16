@@ -9,12 +9,12 @@ int main()
 	const Animal* cat = new Cat();
 	const WrongAnimal* wrong = new WrongCat();
 	std::cout << animal->getType() << " " << std::endl;
-	std::cout << dog->getType() << " " << std::endl;
-	std::cout << cat->getType() << " " << std::endl;
-	std::cout << wrong->getType() << " " << std::endl;
 	animal->makeSound();
+	std::cout << dog->getType() << " " << std::endl;
 	dog->makeSound();
+	std::cout << cat->getType() << " " << std::endl;
 	cat->makeSound();
+	std::cout << wrong->getType() << " " << std::endl;
 	wrong->makeSound();
 	delete animal;
 	delete dog;
