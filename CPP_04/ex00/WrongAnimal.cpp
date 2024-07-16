@@ -18,8 +18,10 @@ WrongAnimal&	WrongAnimal::operator=(const WrongAnimal& other)
 	return(*this);
 }
 
-WrongAnimal::~WrongAnimal() {}
-
+WrongAnimal::~WrongAnimal()
+{
+	std::cout << "An Wrong Animal has been destroyed" << std::endl;
+}
 
 std::string	WrongAnimal::getType() const
 {

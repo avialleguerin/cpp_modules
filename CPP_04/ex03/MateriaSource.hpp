@@ -2,8 +2,8 @@
 # define MATERIASOURCE_HPP
 
 # include <iostream>
-# include "Cure.hpp"
-# include "Ice.hpp"
+# include "IMateriaSource.hpp"
+# include "AMateria.hpp"
 
 class MateriaSource: public IMateriaSource
 {

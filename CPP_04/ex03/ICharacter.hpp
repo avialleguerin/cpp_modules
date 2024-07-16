@@ -2,7 +2,7 @@
 # define ICHARACTER_HPP
 
 # include <iostream>
-# include "Cure.hpp"
+# include "AMateria.hpp"
 # include "Ice.hpp"
 
 class ICharacter
@@ -10,7 +10,7 @@ class ICharacter
 public:
 	ICharacter() {};
 	ICharacter(const ICharacter& other) {};
-	virtual ~ICharacter() {}
+	virtual ~ICharacter() {};
 	ICharacter&	operator=(const ICharacter& other) {};
 	virtual std::string const&	getName() const = 0;
 	virtual void				equip(AMateria* m) = 0;

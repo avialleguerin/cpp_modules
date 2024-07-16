@@ -20,7 +20,7 @@ AAnimal&	AAnimal::operator=(const AAnimal& other)
 
 AAnimal::~AAnimal()
 {
-	std::cout << "An AAnimal has been destroy" << std::endl;
+	std::cout << "An AAnimal has been destroyed" << std::endl;
 }
 
 std::string	AAnimal::getType() const

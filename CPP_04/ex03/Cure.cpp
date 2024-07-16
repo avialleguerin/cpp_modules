@@ -2,16 +2,19 @@
 
 Cure::Cure()
 {
+	std::cout << "A materia of cure type has been created" << std::endl;
 	_type = "cure";
 }
 
-Cure::Cure(std::string const& type)
-{
-	_type = type;
-}
 Cure::Cure(Cure const& other)
 {
+	std::cout << "Copy materia of cure type has been created" << std::endl;
 	*this = other;
+}
+
+Cure::~Cure()
+{
+	std::cout << "A materia of cure type has been destroyed" << std::endl;
 }
 
 Cure&	Cure::operator=(const Cure& other)

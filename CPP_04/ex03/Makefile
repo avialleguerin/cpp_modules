@@ -2,7 +2,7 @@ NAME = animal
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
-INCLUDES = Character.hpp Amateria.hpp MateriaSource.hpp IMateriaSource.hpp Ice.hpp Cure.hpp
+INCLUDES = Character.hpp ICharacter.hpp AMateria.hpp MateriaSource.hpp IMateriaSource.hpp Ice.hpp Cure.hpp
 
 #Colors and styles:
 RED		= \033[0;31m

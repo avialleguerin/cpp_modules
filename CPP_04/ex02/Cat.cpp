@@ -25,7 +25,7 @@ Cat&	Cat::operator=(const Cat& other)
 
 Cat::~Cat()
 {
-	std::cout << "A Cat has been destroy" << std::endl;
+	std::cout << "A Cat has been destroyed" << std::endl;
 	delete _brain;
 }
 

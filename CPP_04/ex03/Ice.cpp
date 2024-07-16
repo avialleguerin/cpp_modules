@@ -2,17 +2,19 @@
 
 Ice::Ice()
 {
-	_type = "ice";
-}
-
-Ice::Ice(std::string const& type)
-{
-	_type = type;
+	std::cout << "A materia of ice type has been created" << std::endl;
+	_type = "Ice";
 }
 
 Ice::Ice(Ice const& other)
 {
+	std::cout << "Copy materia of ice type has been created" << std::endl;
 	*this = other;
+}
+
+Ice::~Ice()
+{
+	std::cout << "A materia of ice type has been destroyed" << std::endl;
 }
 
 Ice&	Ice::operator=(const Ice& other)

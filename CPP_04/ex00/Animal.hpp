@@ -10,7 +10,7 @@ protected:
 public:
 	Animal();
 	Animal(const Animal& other);
-	~Animal();
+	virtual ~Animal();
 	Animal&			operator=(const Animal& other);
 	std::string		getType() const;
 	virtual void	makeSound() const;

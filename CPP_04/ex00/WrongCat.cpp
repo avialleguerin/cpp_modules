@@ -18,7 +18,10 @@ WrongCat&	WrongCat::operator=(const WrongCat& other)
 	return(*this);
 }
 
-WrongCat::~WrongCat() {}
+WrongCat::~WrongCat()
+{
+	std::cout << "A Wrong Cat has been destroyed" << std::endl;
+}
 
 void	WrongCat::makeSound() const
 {
