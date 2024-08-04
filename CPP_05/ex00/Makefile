@@ -1,8 +1,8 @@
-NAME = animal
+NAME = bureaucrat
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
-INCLUDES = Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp
+INCLUDES = Bureaucrat.hpp
 
 #Colors and styles:
 RED		= \033[0;31m
@@ -16,11 +16,7 @@ BOLD	= \033[1m
 UNDERLINE = \033[4m
 
 SRC	=	main.cpp \
-		Animal.cpp \
-		Cat.cpp \
-		Dog.cpp \
-		WrongAnimal.cpp \
-		WrongCat.cpp
+		Bureaucrat.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
