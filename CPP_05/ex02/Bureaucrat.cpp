@@ -8,17 +8,17 @@ Bureaucrat::Bureaucrat(): _name("*NoName*"), _grade(50)
 Bureaucrat::Bureaucrat(std::string name, int grade): _name(name)
 {
 	(*this).setGrade(grade);
-	std::cout << "A Bureaucrat named " << _name << " and the grade " << _grade << " has been created." << std::endl;
+	std::cout << "A Bureaucrat named " << _name << " with the grade " << _grade << " has been created." << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name), _grade(other._grade)
 {
-	std::cout << "A Copy Bureaucrat named " << _name << " and the grade " << _grade << " has been created." << std::endl;
+	std::cout << "A Copy Bureaucrat named " << _name << " with the grade " << _grade << " has been created." << std::endl;
 }
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << "A Copy Bureaucrat named " << _name << " and the grade " << _grade << " has been destroyed." << std::endl;
+	std::cout << "A Copy Bureaucrat named " << _name << " with the grade " << _grade << " has been destroyed." << std::endl;
 }
 
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& other)
@@ -55,7 +55,7 @@ void	Bureaucrat::decrementGrade()
 	}
 }
 
-void	Bureaucrat::signForm(Form& form) const
+void	Bureaucrat::signForm(AForm& form) const
 {
 	try
 	{

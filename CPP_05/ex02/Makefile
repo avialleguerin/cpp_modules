@@ -17,7 +17,11 @@ UNDERLINE = \033[4m
 
 SRC	=	main.cpp \
 		Bureaucrat.cpp \
-		Form.cpp
+		AForm.cpp \
+		ShrubberyCreationForm.cpp
+		# PresidentialPardonForm.cpp \
+		# RobotomyRequestForm.cpp \
+
 
 OBJ = $(SRC:.cpp=.o)
 

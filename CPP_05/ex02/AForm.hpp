@@ -2,6 +2,7 @@
 # define AFORM_HPP
 
 #include <iostream>
+#include <fstream>
 #include <string>
 #include <exception>
 #include "Bureaucrat.hpp"
@@ -10,7 +11,7 @@ class Bureaucrat;
 
 class AForm
 {
-private:
+protected:
 	const std::string	_name;
 	const int			_gradeSign;
 	const int			_gradeExecute;
@@ -28,7 +29,7 @@ public:
 	int				getGradeExecute() const;
 	bool			getSigned() const;
 
-	void			beSigned(const Bureaucrat& bureaucrat);
+	virtual void			beSigned(const Bureaucrat& bureaucrat) = 0;
 
 	class GradeTooLow : public std::exception
 	{

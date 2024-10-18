@@ -9,7 +9,7 @@
 class ShrubberyCreationForm: public AForm
 {
 private:
-	std::string	_target;
+	std::string	*_target;
 public:
 	ShrubberyCreationForm();
 	ShrubberyCreationForm(std::string target);
@@ -18,7 +18,9 @@ public:
 
 	ShrubberyCreationForm&	operator=(const ShrubberyCreationForm& other);
 
-	void		beSigned(const Bureaucrat& bureaucrat);
+	void			beSigned(const Bureaucrat& bureaucrat);
+	void			execute(Bureaucrat const & executor) const;
+	std::string		*getTarget() const;
 
 };
 

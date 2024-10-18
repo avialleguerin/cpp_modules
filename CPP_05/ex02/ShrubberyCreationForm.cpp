@@ -1,39 +1,39 @@
-#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
-AForm::AForm(): _name("*NoName*"), _gradeSign(20), _gradeExecute(10), _signed(false) {}
+ShrubberyCreationForm::ShrubberyCreationForm(): AForm("*NoName", 145, 137) {}
 
-AForm::AForm(std::string name, int gradeSign, int gradeExecute): _name(name), _gradeSign(gradeSign), _gradeExecute(gradeExecute)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string name): AForm(name, 145, 137)
 {
-	if (_gradeSign < 1 || gradeExecute < 1)
+	if (_gradeSign < 1 || _gradeExecute < 1)
 		throw GradeTooHigh();
-	if (_gradeSign > 150 || gradeExecute > 150)
+	if (_gradeSign > 150 || _gradeExecute > 150)
 		throw GradeTooLow();
 }
 
-AForm::AForm(const AForm& other): _name(other._name), _gradeSign(other._gradeSign), _gradeExecute(other._gradeExecute)
-, _signed(other._signed){
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other): AForm(other) {
 	*this = other;
 }
 
-AForm::~AForm() {}
+ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
-AForm&	AForm::operator=(const AForm& other)
+ShrubberyCreationForm&	ShrubberyCreationForm::operator=(const ShrubberyCreationForm& other)
 {
-	_signed = other._signed;
+	_target = other._target;
 	return (*this);
 }
 
-std::ostream&	operator<<(std::ostream& os, const AForm& other)
+std::ostream&	operator<<(std::ostream& os, const ShrubberyCreationForm& other)
 {
-	os << "AForm Name: " << other.getName()
+	os << "ShrubberyCreationForm Name: " << other.getName()
 	<<", Grade to Sign: " << other.getGradeSign()
 	<<", Grade to Execute: " << other.getGradeExecute()
-	<<", is Signed: " << other.getSigned();
+	<<", Signed: " << other.getSigned()
+	<<", Target: " << other.getSigned();
 	return (os);
 }
 
 
-void	AForm::beSigned(const Bureaucrat& bureaucrat)
+void	ShrubberyCreationForm::beSigned(const Bureaucrat& bureaucrat)
 {
 	if (bureaucrat.getGrade() <= _gradeSign)
 		_signed = true;
@@ -41,33 +41,30 @@ void	AForm::beSigned(const Bureaucrat& bureaucrat)
 		throw Bureaucrat::GradeTooLow();
 }
 
-std::string	AForm::getName() const
+void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
-	return (_name);
+	std::string	file_name = executor.getName() + "_shrubbery";
+	std::ofstream file(file_name);
+	if ((*this).getSigned() == true && executor.getGrade() <= (*this).getGradeExecute())
+	{
+		if (file.is_open())
+		{
+			file << "          &&& &&  & &&\n";
+			file << "      && &\\/&\\|& ()|/ @, &&\n";
+			file << "      &\\/(/&/&||/& /_/)_&/_&\n";
+			file << "   &() &\\/&|()|/&\\/ '%\" & ()\n";
+			file << "  &_\\_&&_\\ |& |&&/&__%_/_& &&\n";
+			file << "&&   && & &| &| /& & % ()& /&&\n";
+			file << " ()&_---()&\\&\\|&&-&&--%---()~\n";
+			file << "     &&     \\|||\n";
+			file << "             |||\n";
+			file << "             |||\n";
+			file << "       , -=-~  .-^- _\n" << std::endl;
+		}
+	}
 }
 
-int	AForm::getGradeSign() const
+std::string*	ShrubberyCreationForm::getTarget() const
 {
-	return (_gradeSign);
-}
-
-int	AForm::getGradeExecute() const
-{
-	return (_gradeExecute);
-}
-
-
-bool	AForm::getSigned() const
-{
-	return (_signed);
-}
-
-const char*	AForm::GradeTooLow::what() const throw()
-{
-	return ("AForm::GradeTooLow");
-}
-
-const char*	AForm::GradeTooHigh::what() const throw()
-{
-	return ("AForm::GradeTooHigh");
+	return (_target);
 }
