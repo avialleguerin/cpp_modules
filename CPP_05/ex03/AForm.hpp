@@ -13,7 +13,7 @@ class Bureaucrat;
 
 class AForm
 {
-protected:
+private:
 	const std::string	_name;
 	const int			_gradeSign;
 	const int			_gradeExecute;
