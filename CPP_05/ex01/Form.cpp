@@ -2,12 +2,13 @@
 
 Form::Form(): _name("*NoName*"), _gradeSign(20), _gradeExecute(10), _signed(false) {}
 
-Form::Form(std::string name, int gradeSign, int gradeExecute): _name(name), _gradeSign(gradeSign), _gradeExecute(gradeExecute)
+Form::Form(std::string name, int gradeSign, int gradeExecute): _name(name), _gradeSign(gradeSign), _gradeExecute(gradeExecute), _signed(false)
 {
 	if (_gradeSign < 1 || gradeExecute < 1)
 		throw GradeTooHigh();
 	if (_gradeSign > 150 || gradeExecute > 150)
 		throw GradeTooLow();
+	std::cout << "Form " << name << " has been created" << std::endl;
 }
 
 Form::Form(const Form& other): _name(other._name), _gradeSign(other._gradeSign), _gradeExecute(other._gradeExecute)

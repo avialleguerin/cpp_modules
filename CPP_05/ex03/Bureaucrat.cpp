@@ -36,7 +36,10 @@ std::ostream&	operator<<(std::ostream& os, const Bureaucrat& other)
 void	Bureaucrat::incrementGrade()
 {
 	if (_grade == 1)
+	{
 		std::cout << "Bureaucrat " << _name << "has already the highest grade." << std::endl;
+		throw Bureaucrat::GradeTooHigh();
+	}
 	else
 	{
 		_grade--;
@@ -47,7 +50,10 @@ void	Bureaucrat::incrementGrade()
 void	Bureaucrat::decrementGrade()
 {
 	if (_grade == 150)
+	{
 		std::cout << "Bureaucrat " << _name << "has already the lowest grade." << std::endl;
+		throw Bureaucrat::GradeTooLow();
+	}
 	else
 	{
 		_grade++;

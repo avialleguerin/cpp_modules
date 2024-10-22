@@ -8,6 +8,7 @@ AForm::AForm(std::string name, int gradeSign, int gradeExecute): _name(name), _g
 		throw GradeTooHigh();
 	if (_gradeSign > 150 || gradeExecute > 150)
 		throw GradeTooLow();
+	std::cout << "Form " << name << " has been created" << std::endl;
 }
 
 AForm::AForm(const AForm& other): _name(other._name), _gradeSign(other._gradeSign), _gradeExecute(other._gradeExecute)

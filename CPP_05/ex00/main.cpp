@@ -3,68 +3,42 @@
 int	main()
 {
 	try {
-		std::cout << "try to construct bureaucrat(name : Nicky Minaj, grade : 151)" << std::endl;
-		Bureaucrat a("Nicky Minaj", 151);
-	} 
-	catch (const std::exception& e) {
-		std::cout << "Exception caught: " << e.what() << std::endl;
-	} 
-
-	try {
-		std::cout << "try to construct bureaucrat(name : David Guetta, grade : 0)" << std::endl;
-		Bureaucrat b("David Guetta", 0);
-	} 
-	catch (const std::exception& e) {
-		std::cout << "Exception caught: " << e.what() << std::endl;
+		std::cout << "Test invalid grade (151):" << std::endl;
+		Bureaucrat high("High", 151);
+	}
+	catch(const std::exception& e) {
+		std::cout << e.what() << std::endl;
 	}
 
 	try {
-		Bureaucrat c("Sia", 1);
-	} 
-	catch (const std::exception& e) {
-		std::cout << "Exception caught: " << e.what() << std::endl;
+		std::cout << "\nTest invalid grade (0):" << std::endl; 
+		Bureaucrat low("Low", 0);
 	}
-
-	Bureaucrat d1("Daft Punk", 150);
-	Bureaucrat d2("Avicii", 112);
-	d2 = d1;
+	catch(const std::exception& e) {
+		std::cout << e.what() << std::endl;
+	}
 
 	try {
-		std::cout << "Before trying decrement : " << d1 << std::endl;
-		d1.decrementGrade();
-	}
-	catch (const std::exception& e) {
-		std::cout << "Exception caught: decrement failed :" << e.what() << std::endl;
-	}
+		std::cout << "\nTest valid bureaucrat:" << std::endl;
+		Bureaucrat normal("Normal", 75);
+		std::cout << normal << std::endl;
 
-	d1.setGrade(1);
-	try {
-		std::cout << "Before trying increment : " << d1  << std::endl;
-		d1.incrementGrade();
+		std::cout << "\nTest increment:" << std::endl;
+		normal.incrementGrade();
+		std::cout << normal << std::endl;
+
+		std::cout << "\nTest decrement:" << std::endl;
+		normal.decrementGrade();
+		std::cout << normal << std::endl;
+
+		std::cout << "\nTest copy constructor:" << std::endl;
+		Bureaucrat copy("Copy", 100);
+		std::cout << "Before: " << copy << std::endl;
+		copy = normal;
+		std::cout << "After: " << copy << std::endl;
+
 	}
-	catch (const std::exception& e) {
-		std::cout << "Exception caught: increment failed :" << e.what() << std::endl;
-	} 
-	std::cout << "After trying increment : " << d1 << std::endl;
-
-	d1.setGrade(100);
-	try {
-		std::cout << "Before trying decrement : " << d1 << std::endl;
-		d1.decrementGrade();
-	} 
-	catch (const std::exception& e) {
-		std::cout << "Exception caught: decrement failed : " << e.what() << std::endl;
-	} 
-	std::cout << "After trying decrement : " << d1 << std::endl;
-
-	try {
-		std::cout << "Before trying increment : " << d1 << std::endl;
-		d1.incrementGrade();
+	catch(const std::exception& e) {
+		std::cout << e.what() << std::endl;
 	}
-	catch (const std::exception& e) {
-		std::cout << "Exception caught: increment failed : " << e.what() << std::endl;
-	} 
-	std::cout << "After trying increment : " << d1 << std::endl;
-
-	return 0;
 }

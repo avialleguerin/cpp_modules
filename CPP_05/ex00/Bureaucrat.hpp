@@ -25,12 +25,12 @@ public:
 	std::string		getName() const;
 	int				getGrade() const;
 
-	class GradeTooLowException : public std::exception
+	class GradeTooLow : public std::exception
 	{
 	public:
 		const char	*what() const throw();
 	};
-	class GradeTooHighException : public std::exception
+	class GradeTooHigh : public std::exception
 	{
 	public:
 		const char	*what() const throw();

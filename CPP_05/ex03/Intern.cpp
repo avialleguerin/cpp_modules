@@ -30,7 +30,10 @@ AForm	*Intern::makeForm(std::string form, std::string target)
 		throw Intern::BadFormName();
 	}
 	if (i < NB_FORMS)
+	{
+		std::cout << "Intern creates " << form << std::endl;
 		return (this->*ptrs[i])(target);
+	}
 	return NULL;
 }
 

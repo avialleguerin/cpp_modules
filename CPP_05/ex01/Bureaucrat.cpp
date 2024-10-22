@@ -1,6 +1,6 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(): _name("*NoName*"), _grade(50)
+Bureaucrat::Bureaucrat(): _name("NoName"), _grade(50)
 {
 	std::cout << "A Bureaucrat with the grade " << _grade << " has been created." << std::endl;
 }
@@ -8,17 +8,17 @@ Bureaucrat::Bureaucrat(): _name("*NoName*"), _grade(50)
 Bureaucrat::Bureaucrat(std::string name, int grade): _name(name)
 {
 	(*this).setGrade(grade);
-	std::cout << "A Bureaucrat named " << _name << " and the grade " << _grade << " has been created." << std::endl;
+	std::cout << "A Bureaucrat named " << _name << " with the grade " << _grade << " has been created." << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name), _grade(other._grade)
 {
-	std::cout << "A Copy Bureaucrat named " << _name << " and the grade " << _grade << " has been created." << std::endl;
+	std::cout << "A Copy Bureaucrat named " << _name << " with the grade " << _grade << " has been created." << std::endl;
 }
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << "A Copy Bureaucrat named " << _name << " and the grade " << _grade << " has been destroyed." << std::endl;
+	std::cout << "A Copy Bureaucrat named " << _name << " with the grade " << _grade << " has been destroyed." << std::endl;
 }
 
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& other)
@@ -36,7 +36,10 @@ std::ostream&	operator<<(std::ostream& os, const Bureaucrat& other)
 void	Bureaucrat::incrementGrade()
 {
 	if (_grade == 1)
+	{
 		std::cout << "Bureaucrat " << _name << "has already the highest grade." << std::endl;
+		throw Bureaucrat::GradeTooHigh();
+	}
 	else
 	{
 		_grade--;
@@ -47,7 +50,10 @@ void	Bureaucrat::incrementGrade()
 void	Bureaucrat::decrementGrade()
 {
 	if (_grade == 150)
+	{
 		std::cout << "Bureaucrat " << _name << "has already the lowest grade." << std::endl;
+		throw Bureaucrat::GradeTooLow();
+	}
 	else
 	{
 		_grade++;
