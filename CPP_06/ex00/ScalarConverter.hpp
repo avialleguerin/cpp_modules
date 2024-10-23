@@ -10,18 +10,18 @@
 class ScalarConverter
 {
 private:
-	int	isChar(std::string literal);
-	int	isInt(std::string literal);
-	int	isFloat(std::string literal);
-	int	isDouble(std::string literal);
+	bool	isChar(std::string& literal);
+	bool	isInt(std::string& literal);
+	bool	isFloat(std::string& literal);
+	bool	isDouble(std::string& literal);
 
-	static void	convertFromChar(std::string literal);
-	static void	convertFromInt(std::string literal);
-	static void	convertFromFloat(std::string literal);
-	static void	convertFromDouble(std::string literal);
+	static void	convertFromChar(int c);
+	static void	convertFromInt(int i);
+	static void	convertFromFloat(float f);
+	static void	convertFromDouble(double d);
 
 public:
-	static void	convert(std::string literal);
+	static void	convert(std::string& literal);
 };
 
 #endif /* SCALARCONVERTER */
