@@ -1,16 +1,13 @@
-NAME = convert
-
-YELLOW = "\033[33m"
-RESET = "\033[0m"
+NAME = serialize
 
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = main.cpp ScalarConverter.cpp
+SRCS = main.cpp Serializer.cpp Data.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-INCLUDES = ScalarConverter.hpp
+INCLUDES = Serializer.hpp Data.hpp
 
 %.o: %.cpp $(INCLUDES)
 	$(CC) $(FLAGS) -c $< -o $@

@@ -1,16 +1,13 @@
-NAME = convert
-
-YELLOW = "\033[33m"
-RESET = "\033[0m"
+NAME = type
 
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = main.cpp ScalarConverter.cpp
+SRCS = main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-INCLUDES = ScalarConverter.hpp
+INCLUDES = Base.hpp A.hpp B.hpp C.hpp
 
 %.o: %.cpp $(INCLUDES)
 	$(CC) $(FLAGS) -c $< -o $@

@@ -2,3 +2,5 @@
 /v2
 *.out
 *.exe
+*.json
+.vscode/
