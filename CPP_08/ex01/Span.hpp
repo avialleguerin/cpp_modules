@@ -26,12 +26,10 @@ class Span {
 		public:
 			const char * what() const throw() { return "Span is empty"; }
 	};
-
 	class onlyOneNumberException : public std::exception {
 		public:
 			const char * what() const throw() { return "Span has only one number"; }
 	};
-
 	class fullException : public std::exception {
 		public:
 			const char * what() const throw() { return "Span is full"; }

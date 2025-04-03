@@ -15,11 +15,23 @@ void Span::addNumber(int nb) {
 unsigned int Span::shortestSpan() {
 	if (_numbers.size() < 2)
 		throw Span::emptyException();
-	if (_numbers.size() == 2)
-		return _numbers[0] - _numbers[1];
-	std::sort(_numbers.begin(), _numbers.end());
-	unsigned int shortest = _numbers[1] - _numbers[0];
-	for (size_t i = 2; i < _numbers.size(); i++)
-		shortest = std::min(shortest, _numbers[i] - _numbers[i - 1]);
+	std::vector<int> sorted = _numbers;
+	std::sort(sorted.begin(), sorted.end());
+
+	unsigned int shortest = sorted[1] - sorted[0];
+	for (size_t i = 2; i < sorted.size(); i++)
+	{
+		unsigned int current = sorted[i] - sorted[i - 1];
+		if (current < shortest)
+			shortest = current;
+	}
 	return shortest;
+}
+
+unsigned int Span::longestSpan() {
+	if (_numbers.size() < 2)
+		throw Span::emptyException();
+	std::vector<int> sorted = _numbers;
+	std::sort(sorted.begin(), sorted.end());
+	return sorted[sorted.size() - 1] - sorted[0];
 }

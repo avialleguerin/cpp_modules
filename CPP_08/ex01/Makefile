@@ -2,7 +2,7 @@ NAME = span
 CC = c++
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -rf
-INCLUDES = span.hpp
+INCLUDES = Span.hpp
 
 #Colors and styles:
 RED		= \033[0;31m
@@ -15,7 +15,8 @@ RESET	= \033[0m
 BOLD	= \033[1m
 UNDERLINE = \033[4m
 
-SRC	=	main.cpp
+SRC	=	main.cpp \
+		Span.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
