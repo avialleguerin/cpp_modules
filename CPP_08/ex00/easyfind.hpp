@@ -18,7 +18,10 @@ typename T::iterator easyfind(T container, int val)
 	while (it != end)
 	{
 		if (*it == val)
+		{
+			std::cout << GREEN << "Value found" << RESET << std::endl;
 			return it;
+		}
 		++it;
 	}
 	std::cout << RED << "Value not found" << RESET << std::endl;

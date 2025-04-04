@@ -8,6 +8,7 @@
 # define GREEN	"\033[0;32m"
 # define RED	"\033[0;31m"
 # define YELLOW	"\033[0;33m"
+# define BLUE	"\033[0;34m"
 # define RESET	"\033[0m"
 
 class Span {
@@ -19,20 +20,26 @@ class Span {
 		Span(unsigned int N);
 		~Span();
 		void			addNumber(int nb);
+		void			addNumberRange(std::vector<int>::iterator itBegin, std::vector<int>::iterator itEnd);
 		unsigned int	shortestSpan();
 		unsigned int	longestSpan();
+		void			printNumbers() const;
 	
-	class emptyException : public std::exception {
+	class notEnoughNumbers : public std::exception {
 		public:
-			const char * what() const throw() { return "Span is empty"; }
+			const char * what() const throw();
 	};
-	class onlyOneNumberException : public std::exception {
+	class onlyOneNumber : public std::exception {
 		public:
-			const char * what() const throw() { return "Span has only one number"; }
+			const char * what() const throw();
 	};
-	class fullException : public std::exception {
+	class full : public std::exception {
 		public:
-			const char * what() const throw() { return "Span is full"; }
+			const char * what() const throw();
+	};
+	class InvalidRange: public std::exception {
+		public:
+			const char * what() const throw();
 	};
 };
 

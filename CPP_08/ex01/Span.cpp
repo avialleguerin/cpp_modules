@@ -8,13 +8,43 @@ Span::~Span() {}
 
 void Span::addNumber(int nb) {
 	if (_numbers.size() == _size)
-		throw Span::fullException();
+		throw Span::full();
 	_numbers.push_back(nb);
+}
+
+void Span::addNumberRange(std::vector<int>::iterator itBegin, std::vector<int>::iterator itEnd) {
+	if (_numbers.size() == _size)
+		throw Span::full();
+	if (itBegin > itEnd)
+		throw Span::InvalidRange();
+	while (itBegin != itEnd) {
+		if (_numbers.size() == _size)
+			throw Span::full();
+		addNumber(*itBegin);
+		itBegin++;
+	}
+}
+
+void Span::printNumbers() const {
+	std::cout << "Numbers: ";
+	if (_numbers.size() > 10)
+	{
+		for (size_t i = 0; i < 5; i++)
+			std::cout << GREEN << _numbers[i] << ' ';
+		std::cout << "... ";
+		for (size_t i = _numbers.size() - 5; i < _numbers.size(); i++)
+			std::cout << GREEN << _numbers[i] << ' ';
+		std::cout << RESET << std::endl;
+		return;
+	}
+	for (size_t i = 0; i < _numbers.size(); i++)
+		std::cout << GREEN << _numbers[i] << ' ';
+	std::cout << RESET << std::endl;
 }
 
 unsigned int Span::shortestSpan() {
 	if (_numbers.size() < 2)
-		throw Span::emptyException();
+		throw Span::notEnoughNumbers();
 	std::vector<int> sorted = _numbers;
 	std::sort(sorted.begin(), sorted.end());
 
@@ -30,8 +60,25 @@ unsigned int Span::shortestSpan() {
 
 unsigned int Span::longestSpan() {
 	if (_numbers.size() < 2)
-		throw Span::emptyException();
+		throw Span::notEnoughNumbers();
 	std::vector<int> sorted = _numbers;
 	std::sort(sorted.begin(), sorted.end());
 	return sorted[sorted.size() - 1] - sorted[0];
+}
+
+const char* Span::notEnoughNumbers::what() const throw() {
+	return RED "Not enough numbers in Span" RESET;
+}
+
+
+const char* Span::onlyOneNumber::what() const throw() {
+	return RED "Not enough numbers in Span" RESET;
+}
+
+const char* Span::full::what() const throw() {
+	return RED "Span is full" RESET;
+}
+
+const char* Span::InvalidRange::what() const throw() {
+	return RED "Invalid range" RESET;
 }
