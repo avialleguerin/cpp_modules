@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <list>
+#include <algorithm>
 
 # define GREEN	"\033[0;32m"
 # define RED	"\033[0;31m"
@@ -13,19 +14,12 @@
 template <typename T>
 typename T::iterator easyfind(T container, int val)
 {
-	typename T::iterator it = container.begin();
-	typename T::iterator end = container.end();
-	while (it != end)
-	{
-		if (*it == val)
-		{
-			std::cout << GREEN << "Value found" << RESET << std::endl;
-			return it;
-		}
-		++it;
-	}
-	std::cout << RED << "Value not found" << RESET << std::endl;
-	return end;
+	typename T::iterator it = std::find(container.begin(), container.end(), val);
+	if (it != container.end())
+		std::cout << GREEN << "Value found" << RESET << std::endl;
+	else
+		std::cout << RED << "Value not found" << RESET << std::endl;
+	return it;
 }
 
 #endif /* EASYFIND_HPP */

@@ -12,10 +12,10 @@
 # define RESET	"\033[0m"
 
 template <typename T>
-class MutantStack : public std::stack<T, std::deque<T>>
+class MutantStack : public std::stack<T, std::deque<T> >
 {
 	public:
-		typedef std::stack<T, std::deque<T>> stack_type;
+		typedef std::stack<T, std::deque<T> > stack_type;
 		typedef typename std::deque<T>::iterator iterator;
 
 		MutantStack() {}

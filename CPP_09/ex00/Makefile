@@ -1,8 +1,8 @@
-NAME = span
+NAME = btc
 CC = c++
-CFLAGS = -Wall -Wextra -Werror  -std=c++98
+CFLAGS = -Wall -Wextra -Werror
 RM = rm -rf
-INCLUDES = Span.hpp
+INCLUDES = 
 
 #Colors and styles:
 RED		= \033[0;31m
@@ -16,7 +16,6 @@ BOLD	= \033[1m
 UNDERLINE = \033[4m
 
 SRC	=	main.cpp \
-		Span.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

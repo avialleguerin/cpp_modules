@@ -22,6 +22,12 @@ int main()
 	while (itBegin != itEnd)
 		std::cout << GREEN << *itBegin++ << RESET << std::endl;
 	
+	MutantStack<int> mstack2(mstack);
+	MutantStack<int>::iterator itBegin2 = mstack2.begin();
+	MutantStack<int>::iterator itEnd2 = mstack2.end();
+	while (itBegin2 != itEnd2)
+		std::cout << GREEN << *itBegin2++ << RESET << std::endl;
+	
 	std::cout << YELLOW << "=== Test with std::list ===" << RESET << std::endl;
 	std::list<int> lstack;
 	lstack.push_back(5);

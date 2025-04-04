@@ -3,7 +3,8 @@
 #include <iostream>
 #include <stdexcept>
 
-int main() {
+int main(int ac, char** av) {
+	(void)ac;
 	try
 	{
 		std::cout << YELLOW << "Test with 5 elements:" << RESET << std::endl;
@@ -25,7 +26,9 @@ int main() {
 	{
 		std::cout << YELLOW << "\nTest with range of numbers:" << RESET << std::endl;
 		Span sp(10);
-		std::vector<int> numbers = {1, 3, 5, 7, 9, 11, 13, 15};
+		std::vector<int> numbers;
+		for (int i = 1; i < ac; i++)
+			numbers.push_back(std::atoi(av[i]));
 		sp.addNumberRange(numbers.begin(), numbers.end());
 		sp.printNumbers();
 		std::cout << "Shortest Span: " << GREEN << sp.shortestSpan() << RESET << std::endl;
