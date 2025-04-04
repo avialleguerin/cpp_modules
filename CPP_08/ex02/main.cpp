@@ -7,14 +7,14 @@ int main()
 	MutantStack<int> mstack;
 	mstack.push(5);
 	mstack.push(17);
+	mstack.push(3);
+	mstack.push(5);
+	mstack.push(0);
+	mstack.push(737);
+	
 	std::cout << "Top: " << GREEN << mstack.top() << RESET << std::endl;
 	mstack.pop();
 	std::cout << "Size: " << GREEN << mstack.size() << RESET << std::endl;
-	
-	mstack.push(3);
-	mstack.push(5);
-	mstack.push(737);
-	mstack.push(0);
 	
 	std::cout << YELLOW << "Content of the stack (via iterators):" << RESET << std::endl;
 	MutantStack<int>::iterator itBegin = mstack.begin();
@@ -26,14 +26,14 @@ int main()
 	std::list<int> lstack;
 	lstack.push_back(5);
 	lstack.push_back(17);
-	std::cout << "Front: " << GREEN << lstack.front() << RESET << std::endl;
-	lstack.pop_front();
-	std::cout << "Size: " << GREEN << lstack.size() << RESET << std::endl;
-	
 	lstack.push_back(3);
 	lstack.push_back(5);
-	lstack.push_back(737);
 	lstack.push_back(0);
+	lstack.push_back(737);
+	
+	std::cout << "Front: " << GREEN << lstack.back() << RESET << std::endl;
+	lstack.pop_back();
+	std::cout << "Size: " << GREEN << lstack.size() << RESET << std::endl;
 	
 	std::cout << YELLOW << "Content of the list (via iterators):" << RESET << std::endl;
 	for (std::list<int>::iterator lit = lstack.begin(); lit != lstack.end(); ++lit)
