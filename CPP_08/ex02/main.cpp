@@ -22,6 +22,7 @@ int main()
 	while (itBegin != itEnd)
 		std::cout << GREEN << *itBegin++ << RESET << std::endl;
 	
+	std::cout << YELLOW << "=== Test with MutantStack copy ===" << RESET << std::endl;
 	MutantStack<int> mstack2(mstack);
 	MutantStack<int>::iterator itBegin2 = mstack2.begin();
 	MutantStack<int>::iterator itEnd2 = mstack2.end();
