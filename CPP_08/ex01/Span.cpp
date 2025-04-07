@@ -6,6 +6,16 @@ Span::Span(unsigned int N) : _size(N) {}
 
 Span::~Span() {}
 
+Span::Span(const Span& other) : _numbers(other._numbers), _size(other._size) {}
+
+Span& Span::operator=(const Span& other) {
+	if (this != &other) {
+		_numbers = other._numbers;
+		_size = other._size;
+	}
+	return *this;
+}
+
 void Span::addNumber(int nb) {
 	if (_numbers.size() == _size)
 		throw Span::full();
