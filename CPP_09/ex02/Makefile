@@ -1,8 +1,8 @@
-NAME = animal
+NAME = PmergeMe
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
-INCLUDES = Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp
+INCLUDES = PmergeMe.hpp
 
 #Colors and styles:
 RED		= \033[0;31m
@@ -16,22 +16,18 @@ BOLD	= \033[1m
 UNDERLINE = \033[4m
 
 SRC	=	main.cpp \
-		Animal.cpp \
-		Cat.cpp \
-		Dog.cpp \
-		WrongAnimal.cpp \
-		WrongCat.cpp
+		PmergeMe.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) Makefile
 	@echo -n "$(YELLOW)Compiling $(BOLD)$(NAME)...$(RESET)"
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
 	@echo "$(GREEN)\nDone.$(RESET)"
 
 all : $(NAME)
 
-%.o: %.cpp $(INCLUDES) Makefile
+%.o: %.cpp $(INCLUDES)
 	@echo "$(CYAN)Creating object file for $<...$(RESET)"
 	@$(CC) $(CFLAGS) -I ./ -c $< -o $@
 	@echo "$(GREEN)Finished $@$(RESET)"
@@ -40,6 +36,7 @@ all : $(NAME)
 clean:
 	@echo -n "$(RED)Cleaning object files...$(RESET)"
 	@$(RM) $(OBJ)
+	@$(RM) backyard_shrubbery
 	@echo "$(GREEN)\nObject files cleaned.$(RESET)"
 
 fclean: clean

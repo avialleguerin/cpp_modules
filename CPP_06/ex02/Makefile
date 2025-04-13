@@ -9,7 +9,7 @@ OBJS = $(SRCS:.cpp=.o)
 
 INCLUDES = Base.hpp A.hpp B.hpp C.hpp
 
-%.o: %.cpp $(INCLUDES)
+%.o: %.cpp $(INCLUDES) Makefile
 	$(CC) $(FLAGS) -c $< -o $@
 
 all: $(NAME)

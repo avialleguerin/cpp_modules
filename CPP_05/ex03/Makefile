@@ -32,7 +32,7 @@ $(NAME): $(OBJ)
 
 all : $(NAME)
 
-%.o: %.cpp $(INCLUDES)
+%.o: %.cpp $(INCLUDES) Makefile
 	@echo "$(CYAN)Creating object file for $<...$(RESET)"
 	@$(CC) $(CFLAGS) -I ./ -c $< -o $@
 	@echo "$(GREEN)Finished $@$(RESET)"

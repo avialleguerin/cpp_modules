@@ -1,6 +1,6 @@
 NAME = btc
 CC = c++
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 INCLUDES = 
 
@@ -19,7 +19,7 @@ SRC	=	main.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) Makefile
 	@echo -n "$(YELLOW)Compiling $(BOLD)$(NAME)...$(RESET)"
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
 	@echo "$(GREEN)\nDone.$(RESET)"

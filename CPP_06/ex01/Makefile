@@ -9,7 +9,7 @@ OBJS = $(SRCS:.cpp=.o)
 
 INCLUDES = Serializer.hpp Data.hpp
 
-%.o: %.cpp $(INCLUDES)
+%.o: %.cpp $(INCLUDES) Makefile
 	$(CC) $(FLAGS) -c $< -o $@
 
 all: $(NAME)
