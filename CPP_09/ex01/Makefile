@@ -1,8 +1,8 @@
-NAME = btc
+NAME = RPN
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
-INCLUDES = BitcoinExchange.hpp
+INCLUDES = RPN.hpp
 
 #Colors and styles:
 RED		= \033[0;31m
@@ -16,7 +16,7 @@ BOLD	= \033[1m
 UNDERLINE = \033[4m
 
 SRC	=	main.cpp \
-		BitcoinExchange.cpp
+		RPN.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
