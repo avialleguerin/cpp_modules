@@ -6,7 +6,7 @@ int main(int argc, char **argv) {
 	p.merge(argc, argv);
 	return 0;
 	} catch (const std::exception &e) {
-		std::cerr << RED << "Error: " << e.what() << RESET << std::endl;
+		std::cout << RED << "Error: " << e.what() << RESET << std::endl;
 		return 1;
 	}
 }

@@ -41,7 +41,7 @@ void	ShrubberyCreationForm::execute(const Bureaucrat& bureaucrat)
 	std::ofstream file(fileName.c_str());
 	if (!file.is_open()) 
 	{
-		std::cerr << "Error : can't open the file " << fileName << std::endl;
+		std::cout << "Error : can't open the file " << fileName << std::endl;
 		return;
 	}
 

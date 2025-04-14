@@ -31,6 +31,8 @@ void RPN::run(std::string argv) {
 		} else {
 			if (!isdigit(token[0]))
 				throw std::runtime_error("Invalid operand");
+			if (token.size() > 1)
+				throw std::runtime_error("Number > 9");
 			_numbers.push(std::atoi(token.c_str()));
 		}
 	}

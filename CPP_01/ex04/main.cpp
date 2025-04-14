@@ -25,14 +25,14 @@ int	main(int ac, char **av)
 {
 	if (ac != 4)
 	{
-		std::cerr << "Error: wrong number of arguments" << std::endl;
-		std::cerr << "Format expected: ./sed <filename> <old_word> <new_word >" <<std::endl;
+		std::cout << "Error: wrong number of arguments" << std::endl;
+		std::cout << "Format expected: ./sed <filename> <old_word> <new_word >" <<std::endl;
 		return 1;
 	}
 	std::ifstream infile(av[1]);
 	if (!infile.is_open())
 	{
-		std::cerr << "Error: " << av[1] << ": infile can't be opened" << std::endl;
+		std::cout << "Error: " << av[1] << ": infile can't be opened" << std::endl;
 		return 1;
 	}
 	std::stringstream	buffer;
@@ -42,7 +42,7 @@ int	main(int ac, char **av)
 	std::ofstream outfile(outfileName.c_str());
 	if (!outfile.is_open())
 	{
-		std::cerr << "Error: " << outfileName
+		std::cout << "Error: " << outfileName
 		<< "outfile canno't be opened..." << std::endl;
 		return 1;
 	}

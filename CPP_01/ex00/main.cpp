@@ -17,7 +17,7 @@ int	main(void)
 	}
 	catch (const std::bad_alloc& err)
 	{
-		std::cerr << "Allocation with newZombie failed :" << err.what() << std::endl;
+		std::cout << "Allocation with newZombie failed :" << err.what() << std::endl;
 		return (1);
 	}
 	z3->announce();

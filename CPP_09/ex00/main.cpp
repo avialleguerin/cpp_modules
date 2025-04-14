@@ -7,7 +7,7 @@ int main(int argc, char **argv)
 		BitcoinExchange btc(argc, argv);
 		btc.run();
 	} catch (const std::exception &e) {
-		std::cerr << RED << e.what() << RESET << std::endl;
+		std::cout << RED << e.what() << RESET << std::endl;
 	}
 	return 0;
 }

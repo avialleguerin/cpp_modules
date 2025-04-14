@@ -45,21 +45,6 @@ void PmergeMe::printContainer(std::string msg) {
 	std::cout << std::endl;
 }
 
-// std::vector<int> PmergeMe::generateJacobsthalNumbers(int n) {
-// 	std::vector<int> jacobsthal;
-// 	jacobsthal.push_back(0);
-// 	jacobsthal.push_back(1);
-	
-// 	int idx = 2;
-// 	while (jacobsthal.back() < n) {
-// 		int next = jacobsthal[idx - 1] + 2 * jacobsthal[idx - 2];
-// 		jacobsthal.push_back(next);
-// 		idx++;
-// 	}
-	
-// 	return jacobsthal;
-// }
-
 template <typename T>
 void PmergeMe::mergInsertSort(T &container)
 {

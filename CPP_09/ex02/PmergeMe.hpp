@@ -25,7 +25,6 @@ class PmergeMe
 		void fillContainers(char **argv, int argc);
 		void printContainer(std::string msg);
 		template <typename T> void mergInsertSort(T &container);
-		// std::vector<int> generateJacobsthalNumbers(int n);
 		void merge(int argc, char **argv);
 };
 
