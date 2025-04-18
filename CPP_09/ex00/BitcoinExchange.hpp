@@ -39,11 +39,12 @@ class BitcoinExchange
 		~BitcoinExchange();
 
 		void checkArgs(int argc, char** argv);
-		bool checkDate(const std::tm& date);
+		bool checkFormat(std::string line);
 		bool checkRate(float rate);
+		bool checkDate(const std::tm& date, std::string line);
+		std::tm parseDate(const std::string& date);
 		void extractFile();
 		void storeData();
-		std::tm parseDate(const std::string& date);
 		std::map<std::tm, float, tmCompare>::iterator findClosestDate(const std::tm& date);
 		void run();
 

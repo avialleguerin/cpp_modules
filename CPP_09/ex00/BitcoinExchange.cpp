@@ -3,22 +3,52 @@
 BitcoinExchange::BitcoinExchange(int argc, char** argv) { checkArgs(argc, argv); }
 BitcoinExchange::~BitcoinExchange() {}
 
-void BitcoinExchange::checkArgs(int argc, char** argv) {
+void BitcoinExchange::checkArgs(int argc, char** argv)
+{
 	if (argc != 2) {
 		throw BitcoinExchange::InvalidArgsException();
 	}
 	_path = argv[1];
 }
 
-bool BitcoinExchange::checkDate(const std::tm& date) {
+bool BitcoinExchange::checkFormat(std::string line) 
+{
+	if (!isdigit(line[0]) || !isdigit(line[1]) || !isdigit(line[2]) || !isdigit(line[3])
+	|| !isdigit(line[5]) || !isdigit(line[6]) || !isdigit(line[8]) || !isdigit(line[9]))
+		return false;
+	else if (line[4] != '-' || line[7] != '-')
+		return false;
+	else if (line[10] != ' ' || line[12] != ' ')
+		return false;
+	else if (line[11] != '|')
+		return false;
+	for (size_t i = 13; i < line.size(); i++)
+	{
+		if (!isdigit(line[i]) && line[i] != '.')
+			return false;
+	}
+	return true;
+}
 
-	if (date.tm_year < 2009 || date.tm_year > 2023 || date.tm_mday > 31 || date.tm_mon > 11) {
-		std::cout << RED << "Error: Bad input => " << std::setw(4) << std::setfill('0') << date.tm_year 
-				<< "-" << std::setw(2) << std::setfill('0') << date.tm_mon
-				<< "-" << std::setw(2) << std::setfill('0') << date.tm_mday << RESET << std::endl;
+bool BitcoinExchange::checkDate(const std::tm& date, std::string line) {
+	if ((!checkFormat(line))
+	|| (((date.tm_year % 4 == 0 && date.tm_mday > 29) || (date.tm_year % 4 != 0 && date.tm_mday > 28)) && date.tm_mon == 2)
+	|| (date.tm_year < 2009 || date.tm_year > 2023 || date.tm_mday > 31 || date.tm_mon > 12)
+	|| (((date.tm_mon < 7 && date.tm_mon % 2 == 0 ) || (date.tm_mon > 8 && date.tm_mon % 2 != 0)) && date.tm_mday > 30))
+	{
+		std::cout << RED << "Error: Bad input => " << line << RESET << std::endl;
 		return false;
 	}
 	return true;
+}
+
+std::tm BitcoinExchange::parseDate(const std::string& date) {
+	std::tm timeStruct = {};
+	memset(&timeStruct, 0, sizeof(std::tm));
+	strptime(date.c_str(), "%Y-%m-%d", &timeStruct);
+	timeStruct.tm_year += 1900;
+	timeStruct.tm_mon += 1;
+	return timeStruct;
 }
 
 bool BitcoinExchange::checkRate(float rate) {
@@ -27,7 +57,7 @@ bool BitcoinExchange::checkRate(float rate) {
 		return false;
 	}
 	if (rate > 1000) {
-		std::cout << RED << "Error: too large number." << RESET << std::endl;
+		std::cout << RED << "Error: too large a number." << RESET << std::endl;
 		return false;
 	}
 	return true;
@@ -41,15 +71,6 @@ const char* BitcoinExchange::InvalidRateException::what() const throw() {
 	return "Error: invalid rate.";
 }
 
-std::tm BitcoinExchange::parseDate(const std::string& date) {
-	std::tm timeStruct = {};
-	::memset(&timeStruct, 0, sizeof(std::tm));
-	if (sscanf(date.c_str(), "%d-%d-%d", 
-		&timeStruct.tm_year, &timeStruct.tm_mon, &timeStruct.tm_mday) != 3) {
-		throw BitcoinExchange::InvalidDateException();
-	}
-	return timeStruct;
-}
 
 std::map<std::tm, float, tmCompare>::iterator BitcoinExchange::findClosestDate(const std::tm& date) {
 	std::map<std::tm, float, tmCompare>::iterator it1 = _bd.find(date);
@@ -99,15 +120,15 @@ void BitcoinExchange::extractFile()
 		std::getline(ss, rateStr);
 		std::tm date = parseDate(dateStr);
 		float rate = std::atof(rateStr.c_str());
-		if (!checkDate(date) || !checkRate(rate))
+		if (!checkRate(rate) || !checkDate(date, line))
+		{
+			// std::cout << "Error: Bad input => " << dateStr << (rate ? " | " : "") << (rate ? rate : "") << std::endl;
 			continue;
+		}
 		else
 		{
 			std::map<std::tm, float, tmCompare>::iterator closestDate = findClosestDate(date);
-			std::cout << std::setw(4) << std::setfill('0') << date.tm_year 
-				<< "-" << std::setw(2) << std::setfill('0') << date.tm_mon
-				<< "-" << std::setw(2) << std::setfill('0') << date.tm_mday
-				<< " => " << rate << " = " << rate * closestDate->second << std::endl;
+			std::cout << dateStr << "=> " << rate << " = " << rate * closestDate->second << std::endl;
 		}
 	}
 	file.close();

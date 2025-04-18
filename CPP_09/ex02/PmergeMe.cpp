@@ -54,13 +54,11 @@ void PmergeMe::mergInsertSort(T &container)
 	typedef typename T::iterator Iterator;
 	typedef std::vector<int> Chain;
 	typedef typename Chain::iterator ChainIterator;
-	
-	// Création des paires
+
 	std::vector<std::pair<int, int> > pairs;
 	bool hasOdd = (container.size() % 2 != 0);
 	int oddElement;
-	
-	// Former les paires et trier chaque paire
+
 	Iterator it = container.begin();
 	while (it != container.end())
 	{
@@ -75,103 +73,91 @@ void PmergeMe::mergInsertSort(T &container)
 		else if (hasOdd)
 			oddElement = *first;
 	}
-	
-	// Chaînes principale et pendante
-	Chain mainChain, pendChain;
-	
-	// Extraire les éléments pour les chaînes
+
+	Chain bigNumbers, littleNumbers;
+
 	for (size_t i = 0; i < pairs.size(); ++i)
 	{
-		mainChain.push_back(pairs[i].first);
-		pendChain.push_back(pairs[i].second);
+		bigNumbers.push_back(pairs[i].first);
+		littleNumbers.push_back(pairs[i].second);
 	}
-	
-	// Tri récursif de la chaîne principale
-	if (mainChain.size() > 1)
+
+	if (bigNumbers.size() > 1)
 	{
 		T tempContainer;
-		for (ChainIterator it = mainChain.begin(); it != mainChain.end(); ++it)
+		for (ChainIterator it = bigNumbers.begin(); it != bigNumbers.end(); ++it)
 			tempContainer.insert(tempContainer.end(), *it);
 		
 		mergInsertSort(tempContainer);
 		
-		mainChain.clear();
+		bigNumbers.clear();
 		for (Iterator it = tempContainer.begin(); it != tempContainer.end(); ++it)
-			mainChain.push_back(*it);
+			bigNumbers.push_back(*it);
 	}
-	
-	// Générer les indices de Jacobsthal nécessaires
+
 	std::vector<int> jacobIndices;
 	int jac1 = 1, jac2 = 1;
 	jacobIndices.push_back(1);
 	
-	while (jacobIndices.back() < static_cast<int>(pendChain.size()))
+	while (jacobIndices.back() < static_cast<int>(littleNumbers.size()))
 	{
 		int jac3 = jac2 + 2 * jac1;
 		jacobIndices.push_back(jac3);
 		jac1 = jac2;
 		jac2 = jac3;
 	}
-	
-	// Insertion des éléments de la chaîne pendante
-	std::vector<bool> inserted(pendChain.size(), false);
-	
-	// Insertion du premier élément
-	if (!pendChain.empty())
+
+	std::vector<bool> inserted(littleNumbers.size(), false);
+
+	if (!littleNumbers.empty())
 	{
-		ChainIterator pos = std::lower_bound(mainChain.begin(), mainChain.end(), pendChain[0]);
-		mainChain.insert(pos, pendChain[0]);
+		ChainIterator pos = std::lower_bound(bigNumbers.begin(), bigNumbers.end(), littleNumbers[0]);
+		bigNumbers.insert(pos, littleNumbers[0]);
 		inserted[0] = true;
 	}
-	
-	// Insertion selon la séquence de Jacobsthal
+
 	for (size_t i = 0; i < jacobIndices.size(); ++i)
 	{
 		int jacIndex = jacobIndices[i];
-		if (jacIndex <= static_cast<int>(pendChain.size()))
+		if (jacIndex <= static_cast<int>(littleNumbers.size()))
 		{
-			// Insertion de l'élément Jacobsthal
 			if (!inserted[jacIndex - 1])
 			{
-				ChainIterator pos = std::lower_bound(mainChain.begin(), mainChain.end(), pendChain[jacIndex - 1]);
-				mainChain.insert(pos, pendChain[jacIndex - 1]);
+				ChainIterator pos = std::lower_bound(bigNumbers.begin(), bigNumbers.end(), littleNumbers[jacIndex - 1]);
+				bigNumbers.insert(pos, littleNumbers[jacIndex - 1]);
 				inserted[jacIndex - 1] = true;
 			}
-			
-			// Insertion des éléments intermédiaires
+
 			int prevJac = (i > 0) ? jacobIndices[i - 1] : 0;
 			for (int j = jacIndex - 1; j > prevJac; --j)
 			{
 				if (!inserted[j - 1])
 				{
-					ChainIterator pos = std::lower_bound(mainChain.begin(), mainChain.end(), pendChain[j - 1]);
-					mainChain.insert(pos, pendChain[j - 1]);
+					ChainIterator pos = std::lower_bound(bigNumbers.begin(), bigNumbers.end(), littleNumbers[j - 1]);
+					bigNumbers.insert(pos, littleNumbers[j - 1]);
 					inserted[j - 1] = true;
 				}
 			}
 		}
 	}
-	
-	// Insertion des éléments restants
-	for (size_t i = 0; i < pendChain.size(); ++i)
+
+	for (size_t i = 0; i < littleNumbers.size(); ++i)
 	{
 		if (!inserted[i])
 		{
-			ChainIterator pos = std::lower_bound(mainChain.begin(), mainChain.end(), pendChain[i]);
-			mainChain.insert(pos, pendChain[i]);
+			ChainIterator pos = std::lower_bound(bigNumbers.begin(), bigNumbers.end(), littleNumbers[i]);
+			bigNumbers.insert(pos, littleNumbers[i]);
 		}
 	}
-	
-	// Insérer l'élément impair s'il existe
+
 	if (hasOdd)
 	{
-		ChainIterator pos = std::lower_bound(mainChain.begin(), mainChain.end(), oddElement);
-		mainChain.insert(pos, oddElement);
+		ChainIterator pos = std::lower_bound(bigNumbers.begin(), bigNumbers.end(), oddElement);
+		bigNumbers.insert(pos, oddElement);
 	}
-	
-	// Mise à jour du conteneur original
+
 	container.clear();
-	for (ChainIterator it = mainChain.begin(); it != mainChain.end(); ++it)
+	for (ChainIterator it = bigNumbers.begin(); it != bigNumbers.end(); ++it)
 		container.insert(container.end(), *it);
 }
 
