@@ -22,11 +22,16 @@ bool BitcoinExchange::checkFormat(std::string line)
 		return false;
 	else if (line[11] != '|')
 		return false;
+	int point = 0;
 	for (size_t i = 13; i < line.size(); i++)
 	{
+		if (line[i] == '.')
+			point++;
 		if (!isdigit(line[i]) && line[i] != '.')
 			return false;
 	}
+	if (point > 1)
+		return false;
 	return true;
 }
 

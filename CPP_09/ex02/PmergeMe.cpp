@@ -18,6 +18,9 @@ void PmergeMe::checkArgs(int argc, char **argv)
 		throw std::runtime_error("Invalid number of arguments");
 	for (int i = 1; i < argc; i++)
 	{
+		for (int j = 0; argv[i][j]; j++)
+			if (!isdigit(argv[i][j]))
+				throw std::runtime_error("Invalid arguments");
 		if (std::atoi(argv[i]) < 0)
 			throw std::runtime_error("Invalid arguments");
 	}
